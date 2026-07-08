@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LUN8 Dance Challenge 모집</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+:root{
+  --page-bg:#F2EFE9;
+  --card-bg:#FFFFFF;
+  --sub-bg:#FAF9F7;
+  --ink:#17151F;
+  --accent:#FF3D78;
+  --accent-tint:#FFF0F6;
+  --warn-bg:#FFF6F2;
+  --gray-1:#726F7C;
+  --gray-2:#8B889A;
+  --gray-3:#9A96A3;
+  --gray-4:#A09DB0;
+  --gray-5:#C3C0CC;
+  --line:rgba(0,0,0,.06);
+  --font:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",-apple-system,BlinkMacSystemFont,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-height:1.75;-webkit-tap-highlight-color:transparent;word-break:keep-all;overflow-wrap:break-word}
+@media(prefers-reduced-motion:reduce){*{transition:none !important}}
+@keyframes popIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+
+.page{min-height:100vh;display:flex;justify-content:center;padding:32px 16px}
+.card{width:100%;max-width:640px;background:var(--card-bg);border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(20,15,10,.08)}
+.divider{margin:32px 32px 0;border-top:1px solid rgba(0,0,0,.07)}
+
+/* ---------- HERO ---------- */
+.hero{background:linear-gradient(160deg,#fff0f6 0%,#fff9f0 55%,#fff 100%);padding:44px 32px 36px;text-align:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,61,120,.35);border-radius:999px;padding:7px 18px;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--accent)}
+.hero h1{margin-top:22px;font-size:clamp(26px,7vw,30px);font-weight:800;color:var(--ink);line-height:1.25;letter-spacing:-.01em;text-wrap:balance}
+.hero-song{margin-top:14px;font-size:15px;font-weight:700;color:var(--accent)}
+.hero-desc{margin-top:16px;font-size:14px;line-height:1.7;color:var(--gray-1);max-width:460px;margin-left:auto;margin-right:auto}
+.hero-date{margin-top:24px;display:inline-block;background:var(--accent);color:#fff;font-size:14px;font-weight:700;padding:11px 24px;border-radius:999px}
+
+/* ---------- REWARD STRIP ---------- */
+.reward-strip{background:var(--accent);padding:16px 24px;text-align:center}
+.reward-strip .main{font-size:14.5px;font-weight:700;color:#fff}
+.reward-strip .sub{margin-top:4px;font-size:12.5px;color:rgba(255,255,255,.85)}
+
+/* ---------- SECTION ---------- */
+.section{padding:32px 32px 8px}
+.section:first-of-type{padding-top:36px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--accent)}
+.section h2{margin-top:8px;font-size:20px;font-weight:800;color:var(--ink)}
+
+/* ---------- OVERVIEW GRID ---------- */
+.overview{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ov-card{background:var(--sub-bg);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.ov-label{font-size:11.5px;color:var(--gray-3)}
+.ov-value{margin-top:6px;font-size:15px;font-weight:700;color:var(--ink)}
+
+/* ---------- VIDEO GUIDE CARDS ---------- */
+.ref-note{margin-top:10px;font-size:13.5px;color:var(--gray-2);line-height:1.6}
+.video-card{margin-top:12px;display:flex;align-items:center;gap:14px;background:var(--sub-bg);border:1px solid var(--line);border-radius:14px;padding:16px 18px;text-decoration:none;color:inherit;transition:border-color .12s}
+.video-card:first-of-type{margin-top:20px}
+.video-card:hover{border-color:var(--accent)}
+.play-icon{flex:none;width:44px;height:44px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px}
+.video-info{min-width:0}
+.video-info strong{display:block;font-size:14.5px;font-weight:700;color:var(--ink)}
+.video-info span{display:block;margin-top:2px;font-size:12.5px;color:var(--gray-4)}
+
+.embed-card{margin-top:12px;background:var(--sub-bg);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.embed-card .embed-label{padding:14px 18px 4px;font-size:13.5px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:6px}
+.embed-card .embed-label span{font-weight:500;color:var(--gray-4);font-size:12.5px}
+.embed-card .tiktok-embed{margin:0 auto !important}
+
+/* ---------- SOUND BUTTON ---------- */
+.sound-btn{margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:14.5px;padding:14px;border-radius:12px}
+
+/* ---------- WARNING ---------- */
+.warn{margin-top:14px;background:var(--warn-bg);border:1px solid rgba(255,61,120,.2);border-radius:14px;padding:16px 18px}
+.warn b{display:block;font-size:14px;font-weight:700;color:var(--accent)}
+.warn p{margin-top:6px;font-size:13px;line-height:1.7;color:var(--gray-1)}
+
+/* ---------- HASHTAG ---------- */
+.hashtag-row{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--sub-bg);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.hashtag-row .tags-text{font-size:14.5px;font-weight:700;color:var(--ink);min-width:0}
+.copybtn{flex:none;font-size:12.5px;font-weight:700;color:var(--accent);background:var(--accent-tint);border:none;padding:8px 14px;border-radius:999px;cursor:pointer;font-family:inherit}
+.copybtn.done{background:var(--accent);color:#fff}
+
+/* ---------- STEPS ---------- */
+.steps{margin-top:20px;display:flex;flex-direction:column;gap:16px}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step-num{flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.step-text{font-size:14px;line-height:1.6;color:#3A3742;padding-top:3px;min-width:0}
+
+/* ---------- TIMELINE ---------- */
+.tl{margin-top:20px;display:flex;flex-direction:column}
+.tl-row{display:flex;gap:16px}
+.tl-dotcol{flex:none;display:flex;flex-direction:column;align-items:center}
+.tl-dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.tl-line{width:2px;flex:1;background:rgba(255,61,120,.2);min-height:28px}
+.tl-body{padding-bottom:20px}
+.tl-row:last-child .tl-body{padding-bottom:0}
+.tl-date{font-size:12.5px;font-weight:700;color:var(--accent)}
+.tl-label{margin-top:4px;font-size:14.5px;font-weight:700;color:var(--ink);min-width:0}
+
+/* ---------- FORM ---------- */
+.form-note{margin-top:10px;font-size:13.5px;color:var(--gray-2);line-height:1.6}
+.apply-fields{margin-top:20px;display:flex;flex-direction:column;gap:14px}
+.field-label{font-size:12.5px;font-weight:600;color:#4B4856;margin-bottom:6px}
+.field input{width:100%;padding:12px 14px;font-size:14.5px;border:1px solid rgba(0,0,0,.1);border-radius:10px;background:#fff;color:var(--ink);font-family:inherit}
+.field input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,61,120,.12);outline:none}
+.hint{margin-top:6px;font-size:12px;color:var(--gray-4)}
+.checkfield{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;color:#6F6C7A;line-height:1.6;cursor:pointer}
+.checkfield span{min-width:0}
+.checkfield input{margin-top:2px;accent-color:var(--accent)}
+.form-error{display:none;margin-top:2px;font-size:12.5px;color:var(--accent);font-weight:600}
+.submit-btn{margin-top:2px;width:100%;padding:14px;font-size:15px;font-weight:700;color:#fff;background:var(--accent);border:none;border-radius:12px;cursor:pointer;font-family:inherit}
+.submit-btn:hover{background:#E0245E}
+.success-box{display:none;margin-top:20px;background:#FDF1F5;border:1px solid rgba(255,61,120,.25);border-radius:14px;padding:28px 20px;text-align:center;animation:popIn .3s ease}
+.success-box .icon{font-size:32px}
+.success-box .title{margin-top:10px;font-size:15.5px;font-weight:700;color:var(--ink)}
+.success-box .desc{margin-top:6px;font-size:13px;color:var(--gray-2);line-height:1.6}
+
+.footer{padding:20px 32px 28px;text-align:center;font-size:11.5px;letter-spacing:.08em;color:var(--gray-5)}
+@media(max-width:420px){.overview{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="card">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">K-POP DANCE CHALLENGE</div>
+    <h1>LUN8<br>댄스 챌린지</h1>
+    <div class="hero-song">틱톡·인스타그램 댄서 모집중 💃</div>
+    <p class="hero-desc">[그룹 소개 문구 입력 예정 — LUN8 소속사·결성 배경·데뷔 정보 등]</p>
+    <div class="hero-date">데뷔일 [입력 예정]</div>
+  </div>
+
+  <div class="reward-strip">
+    <div class="main">🎁 [리워드 정보 입력 예정]</div>
+    <div class="sub">선착순 안내입니다. 서둘러 응모해주세요.</div>
+  </div>
+
+  <!-- 아티스트 소개 -->
+  <div class="section">
+    <div class="eyebrow">ABOUT</div>
+    <h2>LUN8 소개</h2>
+    <p class="ref-note">[그룹 소개 문구 입력 예정]</p>
+    <a class="sound-btn" href="#" target="_blank" rel="noopener">TikTok 공식 계정 바로가기 [링크 입력 예정]</a>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 개요 -->
+  <div class="section">
+    <div class="eyebrow">OVERVIEW</div>
+    <h2>캠페인 개요</h2>
+    <div class="overview">
+      <div class="ov-card"><div class="ov-label">아티스트</div><div class="ov-value">LUN8</div></div>
+      <div class="ov-card"><div class="ov-label">곡명</div><div class="ov-value">[입력 예정]</div></div>
+      <div class="ov-card"><div class="ov-label">게시 기간</div><div class="ov-value">[입력 예정]</div></div>
+      <div class="ov-card"><div class="ov-label">플랫폼</div><div class="ov-value">TikTok</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 참고 영상 -->
+  <div class="section">
+    <div class="eyebrow">REFERENCE</div>
+    <h2>참고 안무 영상</h2>
+    <p class="ref-note">탭하면 새 탭에서 영상이 열려요. 안무 참고용으로 확인해주세요 💃</p>
+    <a class="video-card" href="#" target="_blank" rel="noopener">
+      <div class="play-icon">▶</div>
+      <div class="video-info"><strong>참고 영상①</strong><span>[링크 입력 예정]</span></div>
+    </a>
+    <a class="video-card" href="#" target="_blank" rel="noopener">
+      <div class="play-icon">▶</div>
+      <div class="video-info"><strong>참고 영상②</strong><span>[링크 입력 예정]</span></div>
+    </a>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 공식 음원 -->
+  <div class="section">
+    <div class="eyebrow">REQUIRED</div>
+    <h2>공식 음원 필수</h2>
+    <a class="sound-btn" href="#" target="_blank" rel="noopener">🎵 공식 음원 바로가기 [링크 입력 예정]</a>
+    <div class="warn">
+      <b>반드시 공식 음원을 사용해주세요</b>
+      <p>오리지널 사운드가 아니라, 위 링크의 공식 음원을 반드시 사용하여 게시해주세요. 원음으로 게시할 경우 대상에서 제외됩니다.</p>
+    </div>
+  </div>
+
+  <!-- 해시태그 -->
+  <div class="section">
+    <div class="eyebrow">REQUIRED</div>
+    <h2>필수 해시태그</h2>
+    <div class="hashtag-row">
+      <div class="tags-text">[해시태그 입력 예정]</div>
+      <button class="copybtn" id="tagCopyBtn" onclick="cp(this)">복사</button>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 참여 방법 -->
+  <div class="section">
+    <div class="eyebrow">HOW TO JOIN</div>
+    <h2>참여 방법</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><div class="step-text">아래 <b>응모 폼</b>에 필요한 정보를 입력 후 제출</div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-text">확인 후 담당자로부터 <b>확정 안내</b></div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-text"><b>공식 음원</b>을 사용해 TikTok에서 댄스 영상 촬영</div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-text"><b>필수 해시태그</b>와 공식 음원을 태그하여, <b>[게시 기간 입력 예정]</b> 사이에 게시</div></div>
+      <div class="step"><div class="step-num">05</div><div class="step-text"><b>[리워드 입력 예정]</b> 증정</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 일정 -->
+  <div class="section">
+    <div class="eyebrow">SCHEDULE</div>
+    <h2>일정</h2>
+    <div class="tl">
+      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">~선착순</div><div class="tl-label">응모 접수</div></div></div>
+      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">약 1~2일 후</div><div class="tl-label">확정 연락</div></div></div>
+      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">[입력 예정]</div><div class="tl-label">챌린지 게시 기간</div></div></div>
+      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">게시 후</div><div class="tl-label">업로드 확인</div></div></div>
+      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div></div><div class="tl-body"><div class="tl-date">확인 후</div><div class="tl-label">[리워드 입력 예정] 증정</div></div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 응모 폼 -->
+  <div class="section" style="padding-bottom:40px">
+    <div class="eyebrow">APPLY</div>
+    <h2>응모 폼</h2>
+    <p class="form-note">꼭 필요한 항목만 담은 간단한 폼이에요. 1분이면 완료됩니다.</p>
+
+    <form id="applyForm" class="apply-fields">
+      <div class="field">
+        <div class="field-label">TikTok 계정 링크</div>
+        <input type="text" name="tiktok" placeholder="https://www.tiktok.com/@아이디">
+      </div>
+
+      <div class="field">
+        <div class="field-label">Instagram 계정 링크</div>
+        <input type="text" name="instagram" placeholder="https://www.instagram.com/아이디">
+        <div class="hint">TikTok·Instagram 중 최소 1개는 입력해주세요</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">이메일 주소</div>
+        <input type="email" name="email" placeholder="example@email.com">
+      </div>
+
+      <div class="field">
+        <div class="field-label">게시 예정일</div>
+        <input type="date" name="postdate">
+        <div class="hint">게시 기간: [입력 예정]</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">연락처(전화번호 또는 라인 ID)</div>
+        <input type="text" name="contact" placeholder="연락 가능한 방법을 적어주세요">
+      </div>
+
+      <label class="checkfield">
+        <input type="checkbox" id="agree" name="agree" required>
+        <span><b style="color:var(--accent)">(필수)</b> 네, 내용을 확인했으며 동의합니다. (공식 음원 사용·필수 해시태그 등 유의사항 포함)</span>
+      </label>
+
+      <label class="checkfield">
+        <input type="checkbox" id="moreInfo" name="moreInfo">
+        <span><b style="color:var(--gray-3)">(선택)</b> 다른 아티스트 댄스 챌린지 소식도 받아보고 싶어요.</span>
+      </label>
+
+      <div class="form-error" id="formError"></div>
+
+      <button type="submit" class="submit-btn">응모하기!</button>
+    </form>
+
+    <div class="success-box" id="successBox">
+      <div class="icon">🎉</div>
+      <div class="title">응모해주셔서 감사합니다.</div>
+      <div class="desc">확인 후 담당자가 연락드리겠습니다.</div>
+    </div>
+  </div>
+
+  <div class="footer">SIRIAI · INFLUENCER MARKETING AGENCY</div>
+
+</div>
+</div>
+
+<script>
+function cp(btn){
+  const text = document.querySelector('.tags-text').textContent;
+  navigator.clipboard.writeText(text).then(()=>{btn.textContent='복사됨!';btn.classList.add('done');setTimeout(()=>{btn.textContent='복사';btn.classList.remove('done')},1500)});
+}
+
+// 구글시트에 응답을 저장하는 Apps Script 웹앱 URL. google-apps-script.gs 안내에 따라
+// 배포한 뒤 발급되는 "...../exec" 링크를 여기에 넣으면 실제 저장이 시작된다.
+const GOOGLE_SCRIPT_URL = '';
+
+document.getElementById('applyForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const form = this;
+  const errorBox = document.getElementById('formError');
+  const tiktok = form.tiktok.value.trim();
+  const instagram = form.instagram.value.trim();
+  const agree = form.agree.checked;
+  if(!tiktok && !instagram){
+    errorBox.textContent = 'TikTok·Instagram 중 최소 1개는 입력해주세요.';
+    errorBox.style.display = 'block';
+    return;
+  }
+  if(!agree){
+    errorBox.textContent = '유의사항 확인 및 동의가 필요해요.';
+    errorBox.style.display = 'block';
+    return;
+  }
+  errorBox.style.display = 'none';
+
+  if(GOOGLE_SCRIPT_URL){
+    const body = new URLSearchParams({
+      lang: 'ko',
+      tiktok: tiktok,
+      instagram: instagram,
+      email: form.email.value.trim(),
+      postdate: form.postdate.value,
+      contact: form.contact.value.trim(),
+      agree: agree ? 'Y' : 'N',
+      moreInfo: form.moreInfo.checked ? 'Y' : 'N'
+    });
+    fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: body }).catch(()=>{});
+  }
+
+  form.style.display = 'none';
+  document.getElementById('successBox').style.display = 'block';
+});
+</script>
+</body>
+</html>

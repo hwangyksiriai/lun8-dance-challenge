@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LUN8 Dance Challenge</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+:root{
+  --page-bg:#F2EFE9;
+  --card-bg:#FFFFFF;
+  --sub-bg:#FAF9F7;
+  --ink:#17151F;
+  --accent:#FF3D78;
+  --gray-1:#726F7C;
+  --gray-3:#9A96A3;
+  --gray-4:#A09DB0;
+  --gray-5:#C3C0CC;
+  --line:rgba(0,0,0,.06);
+  --font:"Pretendard","Hiragino Kaku Gothic ProN","Apple SD Gothic Neo","Malgun Gothic","Yu Gothic",Meiryo,-apple-system,BlinkMacSystemFont,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-height:1.7;-webkit-tap-highlight-color:transparent;word-break:keep-all;overflow-wrap:break-word}
+
+.page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 16px}
+.card{width:100%;max-width:520px;background:var(--card-bg);border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(20,15,10,.08)}
+
+.hero{background:linear-gradient(160deg,#fff0f6 0%,#fff9f0 55%,#fff 100%);padding:44px 32px 32px;text-align:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,61,120,.35);border-radius:999px;padding:7px 18px;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--accent)}
+.hero h1{margin-top:18px;font-size:clamp(24px,6vw,28px);font-weight:800;color:var(--ink);letter-spacing:-.01em;text-wrap:balance}
+.hero .sub{margin-top:10px;font-size:13.5px;color:var(--gray-1)}
+
+.langs{padding:28px 32px 8px;display:flex;flex-direction:column;gap:12px}
+.lang-card{display:flex;align-items:center;gap:14px;background:var(--sub-bg);border:1px solid var(--line);border-radius:14px;padding:16px 18px;text-decoration:none;color:inherit;transition:border-color .12s}
+.lang-card:hover{border-color:var(--accent)}
+.lang-flag{flex:none;width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:20px}
+.lang-body{flex:1;min-width:0}
+.lang-song{font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--accent)}
+.lang-title{margin-top:2px;font-size:15.5px;font-weight:700;color:var(--ink)}
+.lang-desc{margin-top:2px;font-size:12.5px;color:var(--gray-4)}
+.lang-arrow{flex:none;font-size:18px;color:var(--accent)}
+
+.footer{padding:28px 32px 32px;text-align:center;font-size:11.5px;letter-spacing:.08em;color:var(--gray-5)}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="card">
+
+  <div class="hero">
+    <div class="hero-eyebrow">K-POP DANCE CHALLENGE</div>
+    <h1>댄스 챌린지</h1>
+    <div class="sub">언어를 선택해주세요 / 言語を選んでください</div>
+  </div>
+
+  <div class="langs">
+    <a class="lang-card" href="./ja.html">
+      <div class="lang-flag">🇯🇵</div>
+      <div class="lang-body">
+        <div class="lang-song">LUN8</div>
+        <div class="lang-title">日本語で見る</div>
+        <div class="lang-desc">応募ページ（日本語版）</div>
+      </div>
+      <div class="lang-arrow">→</div>
+    </a>
+    <a class="lang-card" href="./ko.html">
+      <div class="lang-flag">🇰🇷</div>
+      <div class="lang-body">
+        <div class="lang-song">LUN8</div>
+        <div class="lang-title">한국어로 보기</div>
+        <div class="lang-desc">응모 페이지 (한국어판)</div>
+      </div>
+      <div class="lang-arrow">→</div>
+    </a>
+  </div>
+
+  <div class="footer">SIRIAI · INFLUENCER MARKETING AGENCY</div>
+
+</div>
+</div>
+</body>
+</html>
