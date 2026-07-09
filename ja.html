@@ -63,6 +63,8 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
 .video-card{margin-top:12px;display:flex;align-items:center;gap:14px;background:var(--sub-bg);border:1px solid var(--line);border-radius:14px;padding:16px 18px;text-decoration:none;color:inherit;transition:border-color .12s}
 .video-card:first-of-type{margin-top:20px}
 .video-card:hover{border-color:var(--accent)}
+.video-embed{margin-top:20px;border-radius:14px;overflow:hidden;background:#000;border:1px solid var(--line)}
+.video-embed iframe{width:100%;aspect-ratio:16/9;border:none;display:block}
 .play-icon{flex:none;width:44px;height:44px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px}
 .video-info{min-width:0}
 .video-info strong{display:block;font-size:14.5px;font-weight:700;color:var(--ink)}
@@ -233,11 +235,10 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
   <div class="section">
     <div class="eyebrow">REFERENCE</div>
     <h2>参考ダンス動画</h2>
-    <p class="ref-note">タップすると新しいタブで動画が開きます。振り付けの参考にしてください 💃</p>
-    <a class="video-card" href="https://drive.google.com/file/d/1d11ZMFvzbGCYkEVZFjFTa3146SWUFtvq/edit" target="_blank" rel="noopener">
-      <div class="play-icon">▶</div>
-      <div class="video-info"><strong>SNEAKERS 参考ダンス動画</strong><span>Google Driveで見る</span></div>
-    </a>
+    <p class="ref-note">下記でそのまま再生して振り付けを確認してください 💃</p>
+    <div class="video-embed">
+      <iframe src="https://drive.google.com/file/d/1d11ZMFvzbGCYkEVZFjFTa3146SWUFtvq/preview" allow="autoplay" allowfullscreen></iframe>
+    </div>
   </div>
 
   <div class="divider"></div>
