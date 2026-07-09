@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LUN8 Dance Challenge 募集</title>
+<title>LUN8 SNEAKERS ダンスチャレンジ | TikTok・Instagram ミラーリング募集</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <style>
 :root{
@@ -67,11 +67,6 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
 .video-info strong{display:block;font-size:14.5px;font-weight:700;color:var(--ink)}
 .video-info span{display:block;margin-top:2px;font-size:12.5px;color:var(--gray-4)}
 
-.embed-card{margin-top:12px;background:var(--sub-bg);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.embed-card .embed-label{padding:14px 18px 4px;font-size:13.5px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:6px}
-.embed-card .embed-label span{font-weight:500;color:var(--gray-4);font-size:12.5px}
-.embed-card .tiktok-embed{margin:0 auto !important}
-
 /* ---------- SOUND BUTTON ---------- */
 .sound-btn{margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:14.5px;padding:14px;border-radius:12px}
 
@@ -103,6 +98,13 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
 .tl-date{font-size:12.5px;font-weight:700;color:var(--accent)}
 .tl-label{margin-top:4px;font-size:14.5px;font-weight:700;color:var(--ink);min-width:0}
 
+/* ---------- REWARD CARDS ---------- */
+.reward-cards{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.reward-card{display:flex;align-items:center;gap:12px;background:var(--sub-bg);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.reward-num{flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:12.5px;display:flex;align-items:center;justify-content:center}
+.reward-text b{display:block;font-size:14px;font-weight:700;color:var(--ink)}
+.reward-text span{display:block;margin-top:2px;font-size:12.5px;color:var(--gray-2)}
+
 /* ---------- FORM ---------- */
 .form-note{margin-top:10px;font-size:13.5px;color:var(--gray-2);line-height:1.6}
 .apply-fields{margin-top:20px;display:flex;flex-direction:column;gap:14px}
@@ -121,6 +123,41 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
 .success-box .title{margin-top:10px;font-size:15.5px;font-weight:700;color:var(--ink)}
 .success-box .desc{margin-top:6px;font-size:13px;color:var(--gray-2);line-height:1.6}
 
+/* ---------- WIZARD ---------- */
+.step-progress{margin-top:20px;display:flex;gap:8px}
+.step-dot{flex:1;height:4px;border-radius:999px;background:var(--line)}
+.step-dot.active{background:var(--accent)}
+.form-step{display:none;flex-direction:column;gap:14px}
+.form-step.active{display:flex}
+.step-title{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--accent)}
+.step-nav{display:flex;gap:10px;margin-top:4px}
+.btn-prev{flex:1;background:var(--sub-bg);color:var(--ink);border:1px solid var(--line);padding:14px;border-radius:12px;font-weight:700;cursor:pointer;font-family:inherit;font-size:14.5px}
+.btn-next{flex:2;background:var(--accent);color:#fff;border:none;padding:14px;border-radius:12px;font-weight:700;cursor:pointer;font-family:inherit;font-size:14.5px}
+.step-nav .submit-btn{width:auto;flex:2;margin-top:0}
+
+/* ---------- PLATFORM CARDS ---------- */
+.platform-options{display:flex;flex-direction:column;gap:10px}
+.platform-card{display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer}
+.platform-card.selected{border-color:var(--accent);background:var(--accent-tint)}
+.platform-card input{accent-color:var(--accent);width:18px;height:18px;flex:none}
+.platform-card b{font-size:14.5px}
+.platform-card small{display:block;margin-top:2px;font-size:12.5px;color:var(--gray-3)}
+
+/* ---------- FOLLOWER RADIO ---------- */
+.radio-row{display:flex;gap:10px;flex-wrap:wrap}
+.radio-opt{flex:1;min-width:120px;text-align:center;border:1.5px solid rgba(255,61,120,.3);border-radius:10px;padding:12px 8px;cursor:pointer;font-weight:700;font-size:13px;color:var(--ink);background:#fff}
+.radio-opt.selected{border-color:var(--accent);background:var(--accent);color:#fff}
+.radio-opt input{display:none}
+
+/* ---------- FRIEND REFERRAL ---------- */
+.share-box{background:var(--sub-bg);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.share-link-row{margin-top:10px;display:flex;gap:8px}
+.share-link-row input{flex:1;min-width:0;padding:10px 12px;font-size:12.5px;border-radius:8px;border:1px solid rgba(0,0,0,.1);background:#fff;color:var(--gray-1);font-family:inherit}
+.friend-row{position:relative;border:1px solid var(--line);border-radius:12px;padding:16px 18px 14px;display:flex;flex-direction:column;gap:8px}
+.friend-row input{width:100%;padding:12px 14px;font-size:14px;border:1px solid rgba(0,0,0,.1);border-radius:10px;font-family:inherit}
+.friend-remove{position:absolute;top:10px;right:10px;border:none;background:none;color:var(--gray-3);font-size:15px;cursor:pointer;line-height:1}
+.add-friend-btn{border:1.5px dashed var(--accent);color:var(--accent);background:none;border-radius:10px;padding:12px;font-weight:700;cursor:pointer;font-family:inherit;font-size:13.5px}
+
 .footer{padding:20px 32px 28px;text-align:center;font-size:11.5px;letter-spacing:.08em;color:var(--gray-5)}
 @media(max-width:420px){.overview{grid-template-columns:1fr}}
 </style>
@@ -132,23 +169,42 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
   <!-- HERO -->
   <div class="hero">
     <div class="hero-eyebrow">K-POP DANCE CHALLENGE</div>
-    <h1>LUN8<br>ダンスチャレンジ</h1>
-    <div class="hero-song">TikTok・Instagramダンサー募集中 💃</div>
-    <p class="hero-desc">[グループ紹介文 入力予定 — 所属事務所・結成の経緯・デビュー情報など]</p>
-    <div class="hero-date">デビュー日 [入力予定]</div>
+    <h1>LUN8 × SNEAKERS<br>ダンスチャレンジ</h1>
+    <div class="hero-song">TikTok・Instagram同時ミラーリング募集中 💃</div>
+    <p class="hero-desc">ASTROのチャ・ウヌと同じ事務所所属、期待の新人ボーイズグループLUN8の初チャレンジに一緒に参加しましょう。</p>
+    <div class="hero-date">投稿期間 7/23 - 8/4</div>
   </div>
 
   <div class="reward-strip">
-    <div class="main">🎁 [リワード情報 入力予定]</div>
-    <div class="sub">先着順のご案内です。お早めにご応募ください。</div>
+    <div class="main">🎁 最大¥30,000+相当のプライベートチャレンジがスタート</div>
+    <div class="sub">TikTok・Instagram両方のプラットフォームで参加可能 · 先着順で締め切りになる場合があります</div>
   </div>
 
   <!-- アーティスト紹介 -->
   <div class="section">
     <div class="eyebrow">ABOUT</div>
     <h2>LUN8とは</h2>
-    <p class="ref-note">[グループ紹介文 入力予定]</p>
-    <a class="sound-btn" href="#" target="_blank" rel="noopener">TikTok公式アカウントはこちら [リンク入力予定]</a>
+    <p class="ref-note">
+      LUN8(ルネイト)は、ASTROのチャ・ウヌが所属するまさにその事務所が送り出す多国籍ボーイズグループで、ASTROの弟グループです。<br><br>
+      「暗い夜を明るく照らす月明かりを抱いた少年」という意味を込めており、リスナーにポジティブなエネルギーを届けたいという抱負を持つグループです。<br><br>
+      今回のSNEAKERSチャレンジは、LUN8が日本のファンダムにしっかりと名前を知ってもらえる最初のチャンスです — 皆さんのおかげでLUN8が日本でも愛される存在になれます!
+    </p>
+    <a class="sound-btn" href="https://www.tiktok.com/@lun8_official?lang=ko-KR" target="_blank" rel="noopener">TikTok公式アカウントはこちら</a>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- リワード -->
+  <div class="section">
+    <div class="eyebrow">REWARD</div>
+    <h2>リワードのご案内</h2>
+    <p class="ref-note">参加方法によってリワードは重複して加算されます。プライベートな特典が盛りだくさん!</p>
+    <div class="reward-cards">
+      <div class="reward-card"><div class="reward-num">1</div><div class="reward-text"><b>基本参加 (TikTok)</b><span>¥5,000相当</span></div></div>
+      <div class="reward-card"><div class="reward-num">2</div><div class="reward-text"><b>TikTok + Instagram同時参加 (ミラーリング)</b><span>¥12,000相当</span></div></div>
+      <div class="reward-card"><div class="reward-num">3</div><div class="reward-text"><b>紹介した友達が投稿を完了した場合</b><span>友達1人につき¥5,000相当</span></div></div>
+      <div class="reward-card"><div class="reward-num">4</div><div class="reward-text"><b>全コンテンツ投稿完了後の優秀賞 (20名)</b><span>¥10,000相当</span></div></div>
+    </div>
   </div>
 
   <div class="divider"></div>
@@ -159,10 +215,11 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
     <h2>キャンペーン概要</h2>
     <div class="overview">
       <div class="ov-card"><div class="ov-label">アーティスト</div><div class="ov-value">LUN8</div></div>
-      <div class="ov-card"><div class="ov-label">楽曲</div><div class="ov-value">[入力予定]</div></div>
-      <div class="ov-card"><div class="ov-label">投稿期間</div><div class="ov-value">[入力予定]</div></div>
-      <div class="ov-card"><div class="ov-label">プラットフォーム</div><div class="ov-value">TikTok</div></div>
+      <div class="ov-card"><div class="ov-label">楽曲</div><div class="ov-value">SNEAKERS</div></div>
+      <div class="ov-card"><div class="ov-label">投稿期間</div><div class="ov-value">7/23 - 8/4</div></div>
+      <div class="ov-card"><div class="ov-label">プラットフォーム</div><div class="ov-value">TikTok / Instagram</div></div>
     </div>
+    <p class="ref-note">投稿後は最低<b>1ヶ月以上</b>削除せずに維持してください。</p>
   </div>
 
   <div class="divider"></div>
@@ -172,13 +229,9 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
     <div class="eyebrow">REFERENCE</div>
     <h2>参考ダンス動画</h2>
     <p class="ref-note">タップすると新しいタブで動画が開きます。振り付けの参考にしてください 💃</p>
-    <a class="video-card" href="#" target="_blank" rel="noopener">
+    <a class="video-card" href="https://drive.google.com/file/d/1d11ZMFvzbGCYkEVZFjFTa3146SWUFtvq/edit" target="_blank" rel="noopener">
       <div class="play-icon">▶</div>
-      <div class="video-info"><strong>参考動画①</strong><span>[リンク入力予定]</span></div>
-    </a>
-    <a class="video-card" href="#" target="_blank" rel="noopener">
-      <div class="play-icon">▶</div>
-      <div class="video-info"><strong>参考動画②</strong><span>[リンク入力予定]</span></div>
+      <div class="video-info"><strong>SNEAKERS 参考ダンス動画</strong><span>Google Driveで見る</span></div>
     </a>
   </div>
 
@@ -188,10 +241,10 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
   <div class="section">
     <div class="eyebrow">REQUIRED</div>
     <h2>公式音源 必須</h2>
-    <a class="sound-btn" href="#" target="_blank" rel="noopener">🎵 公式音源はこちら [リンク入力予定]</a>
+    <p class="ref-note">公式音源は<b>7/22 発売予定</b>です。発売後に音源リンクを別途ご案内いたします。</p>
     <div class="warn">
       <b>必ず公式音源を「使用」してください</b>
-      <p>オリジナルサウンドではなく、上のリンクの公式音源を必ず使用して投稿してください。原音での投稿は対象外になりますのでご注意ください。</p>
+      <p>オリジナルサウンドではなく、公式音源を必ず使用して投稿してください。原音での投稿は対象外になりますのでご注意ください。</p>
     </div>
   </div>
 
@@ -200,7 +253,7 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
     <div class="eyebrow">REQUIRED</div>
     <h2>必須ハッシュタグ</h2>
     <div class="hashtag-row">
-      <div class="tags-text">[ハッシュタグ 入力予定]</div>
+      <div class="tags-text">#루네이트 #LUN8 #SNEAKERS</div>
       <button class="copybtn" id="tagCopyBtn" onclick="cp(this)">コピー</button>
     </div>
   </div>
@@ -212,11 +265,11 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
     <div class="eyebrow">HOW TO JOIN</div>
     <h2>参加方法</h2>
     <div class="steps">
-      <div class="step"><div class="step-num">01</div><div class="step-text">下の<b>応募フォーム</b>に必要事項を入力して送信</div></div>
+      <div class="step"><div class="step-num">01</div><div class="step-text">下の<b>応募フォーム</b>で基本情報・参加プラットフォーム・投稿予定日を入力して送信</div></div>
       <div class="step"><div class="step-num">02</div><div class="step-text">確認後、担当者より<b>確定のご連絡</b></div></div>
-      <div class="step"><div class="step-num">03</div><div class="step-text"><b>公式音源</b>を使ってTikTokでダンス動画を撮影</div></div>
-      <div class="step"><div class="step-num">04</div><div class="step-text"><b>必須ハッシュタグ</b>と公式音源をつけて、<b>[投稿期間 入力予定]</b>の間に投稿</div></div>
-      <div class="step"><div class="step-num">05</div><div class="step-text"><b>[リワード 入力予定]</b>を贈呈</div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-text"><b>公式音源</b>を使って選択したプラットフォームでダンス動画を撮影</div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-text"><b>必須ハッシュタグ</b>と公式音源をつけて、<b>7/23 - 8/4</b>の間に投稿</div></div>
+      <div class="step"><div class="step-num">05</div><div class="step-text">確認後<b>リワード</b>を贈呈、優秀な参加者にはさらに追加リワードも!</div></div>
     </div>
   </div>
 
@@ -229,9 +282,10 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
     <div class="tl">
       <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">〜先着順</div><div class="tl-label">応募受付</div></div></div>
       <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">約1〜2日後</div><div class="tl-label">確定のご連絡</div></div></div>
-      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">[入力予定]</div><div class="tl-label">チャレンジ投稿期間</div></div></div>
-      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">投稿後</div><div class="tl-label">投稿内容の確認</div></div></div>
-      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div></div><div class="tl-body"><div class="tl-date">確認後</div><div class="tl-label">[リワード 入力予定]を贈呈</div></div></div>
+      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">7/22</div><div class="tl-label">公式音源発売</div></div></div>
+      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">7/23 - 8/4</div><div class="tl-label">チャレンジ投稿期間</div></div></div>
+      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">投稿後</div><div class="tl-label">最低1ヶ月以上維持</div></div></div>
+      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div></div><div class="tl-body"><div class="tl-date">確認後</div><div class="tl-label">リワード贈呈 · 優秀賞20名発表</div></div></div>
     </div>
   </div>
 
@@ -241,49 +295,149 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
   <div class="section" style="padding-bottom:40px">
     <div class="eyebrow">APPLY</div>
     <h2>応募フォーム</h2>
-    <p class="form-note">必要な項目だけの簡単フォームです。1分で完了します。</p>
+    <p class="form-note">全5ステップ、2分で完了します。</p>
 
-    <form id="applyForm" class="apply-fields">
-      <div class="field">
-        <div class="field-label">TikTokアカウントリンク</div>
-        <input type="text" name="tiktok" placeholder="https://www.tiktok.com/@your_id">
-      </div>
+    <div class="step-progress" id="stepProgress">
+      <div class="step-dot active"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+    </div>
 
-      <div class="field">
-        <div class="field-label">Instagramアカウントリンク</div>
-        <input type="text" name="instagram" placeholder="https://www.instagram.com/your_id">
-        <div class="hint">TikTok・Instagramのうち、少なくとも1つはご入力ください</div>
-      </div>
-
-      <div class="field">
-        <div class="field-label">メールアドレス</div>
-        <input type="email" name="email" placeholder="example@email.com">
-      </div>
-
-      <div class="field">
-        <div class="field-label">投稿予定日</div>
-        <input type="date" name="postdate">
-        <div class="hint">投稿期間：[入力予定]</div>
-      </div>
-
-      <div class="field">
-        <div class="field-label">連絡先（電話番号 または LINE ID）</div>
-        <input type="text" name="contact" placeholder="連絡が取りやすいものをご記入ください">
-      </div>
-
-      <label class="checkfield">
-        <input type="checkbox" id="agree" name="agree" required>
-        <span><b style="color:var(--accent)">（必須）</b> はい、内容を確認し同意します。（公式音源の使用・必須ハッシュタグ等の注意事項を含みます）</span>
-      </label>
-
-      <label class="checkfield">
-        <input type="checkbox" id="moreInfo" name="moreInfo">
-        <span><b style="color:var(--gray-3)">（任意）</b> 他のアーティストのダンスチャレンジ情報も受け取りたいです。</span>
-      </label>
+    <form id="applyForm" class="apply-fields" style="margin-top:20px">
 
       <div class="form-error" id="formError"></div>
 
-      <button type="submit" class="submit-btn">応募する！</button>
+      <!-- STEP 1 : 基本情報 -->
+      <div class="form-step active">
+        <div class="step-title">STEP 1 · 基本情報 (必須確認)</div>
+
+        <div class="field">
+          <div class="field-label">お名前 / 活動名(ニックネーム)</div>
+          <input type="text" name="name" placeholder="お名前またはニックネームをご入力ください">
+        </div>
+        <div class="field">
+          <div class="field-label">メールアドレス</div>
+          <input type="email" name="email" placeholder="example@email.com">
+        </div>
+        <div class="field">
+          <div class="field-label">連絡先 (電話番号 または LINE ID)</div>
+          <input type="text" name="contact" placeholder="連絡が取りやすいものをご記入ください">
+        </div>
+
+        <div class="warn">
+          <b>フォロワー条件の確認 (必須)</b>
+          <p>フォロワー1,000人以上ですか?</p>
+          <div class="radio-row" style="margin-top:10px">
+            <label class="radio-opt"><input type="radio" name="follower1000" value="Y">はい、1,000人以上です</label>
+            <label class="radio-opt"><input type="radio" name="follower1000" value="N">いいえ</label>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <button type="button" class="btn-next">次へ</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 : プラットフォーム選択 -->
+      <div class="form-step">
+        <div class="step-title">STEP 2 · 参加プラットフォーム選択 (ミラーリング可)</div>
+
+        <div class="platform-options">
+          <label class="platform-card">
+            <input type="radio" name="platform" value="tiktok">
+            <div><b>TikTokのみ参加</b><small>TikTok動画1本投稿 · ¥5,000相当</small></div>
+          </label>
+          <label class="platform-card">
+            <input type="radio" name="platform" value="instagram">
+            <div><b>Instagramのみ参加</b><small>Instagramリール1本投稿 · ¥5,000相当</small></div>
+          </label>
+          <label class="platform-card">
+            <input type="radio" name="platform" value="both">
+            <div><b>TikTok + Instagram同時参加 (ミラーリング)</b><small>両方に投稿 · ¥12,000相当</small></div>
+          </label>
+        </div>
+
+        <div class="warn" id="mirrorWarn" style="display:none">
+          <b>⚠ 同時参加の場合は必ずご確認ください</b>
+          <p>TikTokとInstagramに同時参加する場合、2本の動画は<b>構図と背景を異なるもの</b>にしてください。同じ動画をそのまま使い回すことは認められません。</p>
+        </div>
+
+        <div class="field" id="tiktokField" style="display:none">
+          <div class="field-label">TikTokアカウントリンク</div>
+          <input type="text" name="tiktok" placeholder="https://www.tiktok.com/@your_id">
+        </div>
+        <div class="field" id="instagramField" style="display:none">
+          <div class="field-label">Instagramアカウントリンク</div>
+          <input type="text" name="instagram" placeholder="https://www.instagram.com/your_id">
+        </div>
+
+        <div class="step-nav">
+          <button type="button" class="btn-prev">戻る</button>
+          <button type="button" class="btn-next">次へ</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 : 投稿予定日 -->
+      <div class="form-step">
+        <div class="step-title">STEP 3 · 投稿予定日</div>
+
+        <div class="field">
+          <div class="field-label">投稿予定日</div>
+          <input type="date" name="postdate" min="2026-07-23" max="2026-08-04">
+          <div class="hint">投稿期間: 7/23 - 8/4 · 慎重にご記入ください。この予定日を基準にコンテンツを確認し、確認後2〜3日以内に修正のご依頼をする場合があります。</div>
+        </div>
+
+        <div class="step-nav">
+          <button type="button" class="btn-prev">戻る</button>
+          <button type="button" class="btn-next">次へ</button>
+        </div>
+      </div>
+
+      <!-- STEP 4 : 友達紹介 -->
+      <div class="form-step">
+        <div class="step-title">STEP 4 · 友達紹介 (任意、条件は必須確認)</div>
+        <p class="ref-note">友達を紹介して、その友達がチャレンジを投稿すると<b>友達1人につき¥5,000相当</b>のリワードを差し上げます。</p>
+
+        <div class="share-box">
+          <div class="field-label">友達にチャレンジをシェアする</div>
+          <div class="share-link-row">
+            <input type="text" id="shareLink" readonly>
+            <button type="button" class="copybtn" onclick="copyShare(this)">コピー</button>
+          </div>
+          <div class="hint">コピーしたリンクを友達に直接送ってください。または、下記に友達のSNSリンクとメールアドレスをご記入いただいても構いません。</div>
+        </div>
+
+        <div class="warn">
+          <b>友達紹介の条件 (必須確認)</b>
+          <p>紹介した友達も必ずチャレンジを投稿する必要があり、紹介した友達も<b>フォロワー1,000人以上</b>である場合のみリワードが認められます。</p>
+        </div>
+
+        <div id="friendList" style="display:flex;flex-direction:column;gap:10px"></div>
+        <button type="button" class="add-friend-btn" id="addFriendBtn">+ 友達を追加</button>
+
+        <div class="step-nav">
+          <button type="button" class="btn-prev">戻る</button>
+          <button type="button" class="btn-next">次へ</button>
+        </div>
+      </div>
+
+      <!-- STEP 5 : 最終確認 -->
+      <div class="form-step">
+        <div class="step-title">STEP 5 · 最終確認</div>
+
+        <label class="checkfield">
+          <input type="checkbox" id="agree" name="agree" required>
+          <span><b style="color:var(--accent)">（必須）</b> はい、内容を確認し同意します。（公式音源の使用・必須ハッシュタグ・同時参加時の構図/背景の区別等の注意事項を含みます）</span>
+        </label>
+
+        <div class="step-nav">
+          <button type="button" class="btn-prev">戻る</button>
+          <button type="submit" class="submit-btn">応募する！</button>
+        </div>
+      </div>
+
     </form>
 
     <div class="success-box" id="successBox">
@@ -304,44 +458,142 @@ function cp(btn){
   navigator.clipboard.writeText(text).then(()=>{btn.textContent='コピー済み!';btn.classList.add('done');setTimeout(()=>{btn.textContent='コピー';btn.classList.remove('done')},1500)});
 }
 
+function copyShare(btn){
+  const link = window.location.href;
+  const msg = 'LUN8 SNEAKERSダンスチャレンジ、一緒に参加しよう! 🎁\n' + link;
+  navigator.clipboard.writeText(msg).then(()=>{
+    btn.textContent='コピー済み!'; btn.classList.add('done');
+    setTimeout(()=>{btn.textContent='コピー'; btn.classList.remove('done')},1500);
+  });
+}
+document.getElementById('shareLink').value = window.location.href;
+
+// ---- プラットフォーム選択カード ----
+document.querySelectorAll('.platform-card').forEach(function(card){
+  card.addEventListener('click', function(){
+    document.querySelectorAll('.platform-card').forEach(function(c){ c.classList.remove('selected'); });
+    card.classList.add('selected');
+    card.querySelector('input').checked = true;
+    updatePlatformFields();
+  });
+});
+function updatePlatformFields(){
+  const checked = document.querySelector('input[name="platform"]:checked');
+  const val = checked ? checked.value : '';
+  document.getElementById('tiktokField').style.display = (val==='tiktok'||val==='both') ? 'block' : 'none';
+  document.getElementById('instagramField').style.display = (val==='instagram'||val==='both') ? 'block' : 'none';
+  document.getElementById('mirrorWarn').style.display = (val==='both') ? 'block' : 'none';
+}
+
+// ---- フォロワー条件ラジオ ----
+document.querySelectorAll('.radio-opt').forEach(function(opt){
+  opt.addEventListener('click', function(){
+    const name = opt.querySelector('input').name;
+    document.querySelectorAll('input[name="'+name+'"]').forEach(function(i){ i.closest('.radio-opt').classList.remove('selected'); });
+    opt.classList.add('selected');
+    opt.querySelector('input').checked = true;
+  });
+});
+
+// ---- 友達追加 ----
+document.getElementById('addFriendBtn').addEventListener('click', function(){
+  const wrap = document.getElementById('friendList');
+  const div = document.createElement('div');
+  div.className = 'friend-row';
+  div.innerHTML = '<button type="button" class="friend-remove" aria-label="削除">✕</button>' +
+    '<div class="field-label">友達のSNSリンク (TikTokまたはInstagram)</div>' +
+    '<input type="text" name="friendLink" placeholder="https://www.tiktok.com/@friend_id">' +
+    '<div class="field-label">友達のメールアドレス</div>' +
+    '<input type="email" name="friendEmail" placeholder="friend@email.com">';
+  div.querySelector('.friend-remove').addEventListener('click', function(){ div.remove(); });
+  wrap.appendChild(div);
+});
+
+// ---- ステップナビゲーション ----
+const steps = Array.from(document.querySelectorAll('.form-step'));
+const dots = Array.from(document.querySelectorAll('.step-dot'));
+let currentStep = 0;
+const form = document.getElementById('applyForm');
+const errorBox = document.getElementById('formError');
+
+function showStep(i){
+  steps.forEach(function(s,idx){ s.classList.toggle('active', idx===i); });
+  dots.forEach(function(d,idx){ d.classList.toggle('active', idx<=i); });
+  currentStep = i;
+  errorBox.style.display = 'none';
+}
+
+function validateStep(i){
+  if(i===0){
+    if(!form.name.value.trim() || !form.email.value.trim() || !form.contact.value.trim()){
+      errorBox.textContent = 'お名前、メールアドレス、連絡先をすべてご入力ください。'; errorBox.style.display='block'; return false;
+    }
+    if(!form.querySelector('input[name="follower1000"]:checked')){
+      errorBox.textContent = 'フォロワー条件を選択してください。'; errorBox.style.display='block'; return false;
+    }
+  }
+  if(i===1){
+    const platform = form.querySelector('input[name="platform"]:checked');
+    if(!platform){ errorBox.textContent = '参加プラットフォームを選択してください。'; errorBox.style.display='block'; return false; }
+    const val = platform.value;
+    if((val==='tiktok'||val==='both') && !form.tiktok.value.trim()){ errorBox.textContent = 'TikTokアカウントリンクをご入力ください。'; errorBox.style.display='block'; return false; }
+    if((val==='instagram'||val==='both') && !form.instagram.value.trim()){ errorBox.textContent = 'Instagramアカウントリンクをご入力ください。'; errorBox.style.display='block'; return false; }
+  }
+  if(i===2){
+    if(!form.postdate.value){ errorBox.textContent = '投稿予定日を選択してください。'; errorBox.style.display='block'; return false; }
+  }
+  errorBox.style.display = 'none';
+  return true;
+}
+
+document.querySelectorAll('.btn-next').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    if(validateStep(currentStep) && currentStep < steps.length-1){ showStep(currentStep+1); }
+  });
+});
+document.querySelectorAll('.btn-prev').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    if(currentStep>0){ showStep(currentStep-1); }
+  });
+});
+
 // 応募内容をGoogleスプレッドシートに保存するApps Script WebアプリのURL。
 // google-apps-script.gs の手順でデプロイして発行される「...../exec」リンクをここに入れると保存が開始される。
 const GOOGLE_SCRIPT_URL = '';
 
-document.getElementById('applyForm').addEventListener('submit', function(e){
+form.addEventListener('submit', function(e){
   e.preventDefault();
-  const form = this;
-  const errorBox = document.getElementById('formError');
-  const tiktok = form.tiktok.value.trim();
-  const instagram = form.instagram.value.trim();
-  const agree = form.agree.checked;
-  if(!tiktok && !instagram){
-    errorBox.textContent = 'TikTok・Instagramのうち、少なくとも1つのアカウントリンクをご入力ください。';
-    errorBox.style.display = 'block';
-    return;
-  }
-  if(!agree){
-    errorBox.textContent = '注意事項のご確認・同意が必要です。';
-    errorBox.style.display = 'block';
-    return;
+  if(!form.agree.checked){
+    errorBox.textContent = '注意事項のご確認・同意が必要です。'; errorBox.style.display = 'block'; return;
   }
   errorBox.style.display = 'none';
+
+  const friendLinks = Array.from(form.querySelectorAll('input[name="friendLink"]')).map(function(i){ return i.value.trim(); });
+  const friendEmails = Array.from(form.querySelectorAll('input[name="friendEmail"]')).map(function(i){ return i.value.trim(); });
+  const friends = friendLinks.map(function(l,idx){ return l ? (l + ' (' + (friendEmails[idx]||'メールなし') + ')') : ''; }).filter(Boolean).join(' / ');
+
+  const platform = form.querySelector('input[name="platform"]:checked');
+  const follower1000 = form.querySelector('input[name="follower1000"]:checked');
 
   if(GOOGLE_SCRIPT_URL){
     const body = new URLSearchParams({
       lang: 'ja',
-      tiktok: tiktok,
-      instagram: instagram,
+      name: form.name.value.trim(),
       email: form.email.value.trim(),
-      postdate: form.postdate.value,
       contact: form.contact.value.trim(),
-      agree: agree ? 'Y' : 'N',
-      moreInfo: form.moreInfo.checked ? 'Y' : 'N'
+      follower1000: follower1000 ? follower1000.value : '',
+      platform: platform ? platform.value : '',
+      tiktok: form.tiktok.value.trim(),
+      instagram: form.instagram.value.trim(),
+      postdate: form.postdate.value,
+      friends: friends,
+      agree: form.agree.checked ? 'Y' : 'N'
     });
-    fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: body }).catch(()=>{});
+    fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: body }).catch(function(){});
   }
 
   form.style.display = 'none';
+  document.getElementById('stepProgress').style.display = 'none';
   document.getElementById('successBox').style.display = 'block';
 });
 </script>

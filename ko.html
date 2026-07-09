@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LUN8 Dance Challenge 모집</title>
+<title>LUN8 SNEAKERS 댄스 챌린지 | TikTok·Instagram 미러링 모집</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <style>
 :root{
@@ -67,11 +67,6 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
 .video-info strong{display:block;font-size:14.5px;font-weight:700;color:var(--ink)}
 .video-info span{display:block;margin-top:2px;font-size:12.5px;color:var(--gray-4)}
 
-.embed-card{margin-top:12px;background:var(--sub-bg);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.embed-card .embed-label{padding:14px 18px 4px;font-size:13.5px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:6px}
-.embed-card .embed-label span{font-weight:500;color:var(--gray-4);font-size:12.5px}
-.embed-card .tiktok-embed{margin:0 auto !important}
-
 /* ---------- SOUND BUTTON ---------- */
 .sound-btn{margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:14.5px;padding:14px;border-radius:12px}
 
@@ -103,6 +98,13 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
 .tl-date{font-size:12.5px;font-weight:700;color:var(--accent)}
 .tl-label{margin-top:4px;font-size:14.5px;font-weight:700;color:var(--ink);min-width:0}
 
+/* ---------- REWARD CARDS ---------- */
+.reward-cards{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.reward-card{display:flex;align-items:center;gap:12px;background:var(--sub-bg);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.reward-num{flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:12.5px;display:flex;align-items:center;justify-content:center}
+.reward-text b{display:block;font-size:14px;font-weight:700;color:var(--ink)}
+.reward-text span{display:block;margin-top:2px;font-size:12.5px;color:var(--gray-2)}
+
 /* ---------- FORM ---------- */
 .form-note{margin-top:10px;font-size:13.5px;color:var(--gray-2);line-height:1.6}
 .apply-fields{margin-top:20px;display:flex;flex-direction:column;gap:14px}
@@ -121,6 +123,41 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
 .success-box .title{margin-top:10px;font-size:15.5px;font-weight:700;color:var(--ink)}
 .success-box .desc{margin-top:6px;font-size:13px;color:var(--gray-2);line-height:1.6}
 
+/* ---------- WIZARD ---------- */
+.step-progress{margin-top:20px;display:flex;gap:8px}
+.step-dot{flex:1;height:4px;border-radius:999px;background:var(--line)}
+.step-dot.active{background:var(--accent)}
+.form-step{display:none;flex-direction:column;gap:14px}
+.form-step.active{display:flex}
+.step-title{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--accent)}
+.step-nav{display:flex;gap:10px;margin-top:4px}
+.btn-prev{flex:1;background:var(--sub-bg);color:var(--ink);border:1px solid var(--line);padding:14px;border-radius:12px;font-weight:700;cursor:pointer;font-family:inherit;font-size:14.5px}
+.btn-next{flex:2;background:var(--accent);color:#fff;border:none;padding:14px;border-radius:12px;font-weight:700;cursor:pointer;font-family:inherit;font-size:14.5px}
+.step-nav .submit-btn{width:auto;flex:2;margin-top:0}
+
+/* ---------- PLATFORM CARDS ---------- */
+.platform-options{display:flex;flex-direction:column;gap:10px}
+.platform-card{display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer}
+.platform-card.selected{border-color:var(--accent);background:var(--accent-tint)}
+.platform-card input{accent-color:var(--accent);width:18px;height:18px;flex:none}
+.platform-card b{font-size:14.5px}
+.platform-card small{display:block;margin-top:2px;font-size:12.5px;color:var(--gray-3)}
+
+/* ---------- FOLLOWER RADIO ---------- */
+.radio-row{display:flex;gap:10px;flex-wrap:wrap}
+.radio-opt{flex:1;min-width:120px;text-align:center;border:1.5px solid rgba(255,61,120,.3);border-radius:10px;padding:12px 8px;cursor:pointer;font-weight:700;font-size:13px;color:var(--ink);background:#fff}
+.radio-opt.selected{border-color:var(--accent);background:var(--accent);color:#fff}
+.radio-opt input{display:none}
+
+/* ---------- FRIEND REFERRAL ---------- */
+.share-box{background:var(--sub-bg);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.share-link-row{margin-top:10px;display:flex;gap:8px}
+.share-link-row input{flex:1;min-width:0;padding:10px 12px;font-size:12.5px;border-radius:8px;border:1px solid rgba(0,0,0,.1);background:#fff;color:var(--gray-1);font-family:inherit}
+.friend-row{position:relative;border:1px solid var(--line);border-radius:12px;padding:16px 18px 14px;display:flex;flex-direction:column;gap:8px}
+.friend-row input{width:100%;padding:12px 14px;font-size:14px;border:1px solid rgba(0,0,0,.1);border-radius:10px;font-family:inherit}
+.friend-remove{position:absolute;top:10px;right:10px;border:none;background:none;color:var(--gray-3);font-size:15px;cursor:pointer;line-height:1}
+.add-friend-btn{border:1.5px dashed var(--accent);color:var(--accent);background:none;border-radius:10px;padding:12px;font-weight:700;cursor:pointer;font-family:inherit;font-size:13.5px}
+
 .footer{padding:20px 32px 28px;text-align:center;font-size:11.5px;letter-spacing:.08em;color:var(--gray-5)}
 @media(max-width:420px){.overview{grid-template-columns:1fr}}
 </style>
@@ -132,23 +169,42 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
   <!-- HERO -->
   <div class="hero">
     <div class="hero-eyebrow">K-POP DANCE CHALLENGE</div>
-    <h1>LUN8<br>댄스 챌린지</h1>
-    <div class="hero-song">틱톡·인스타그램 댄서 모집중 💃</div>
-    <p class="hero-desc">[그룹 소개 문구 입력 예정 — LUN8 소속사·결성 배경·데뷔 정보 등]</p>
-    <div class="hero-date">데뷔일 [입력 예정]</div>
+    <h1>LUN8 × SNEAKERS<br>댄스 챌린지</h1>
+    <div class="hero-song">TikTok·Instagram 동시 미러링 모집 💃</div>
+    <p class="hero-desc">아스트로(ASTRO) 차은우와 한 회사 소속, 기대 만발의 신인 보이그룹 LUN8의 첫 챌린지에 함께해요.</p>
+    <div class="hero-date">업로드 7/23 - 8/4</div>
   </div>
 
   <div class="reward-strip">
-    <div class="main">🎁 [리워드 정보 입력 예정]</div>
-    <div class="sub">선착순 안내입니다. 서둘러 응모해주세요.</div>
+    <div class="main">🎁 최대 ¥30,000+ 상당의 프라이빗 챌린지가 시작됩니다</div>
+    <div class="sub">TikTok·Instagram 양쪽 플랫폼 모두 참여 가능 · 선착순 마감될 수 있어요</div>
   </div>
 
   <!-- 아티스트 소개 -->
   <div class="section">
     <div class="eyebrow">ABOUT</div>
     <h2>LUN8 소개</h2>
-    <p class="ref-note">[그룹 소개 문구 입력 예정]</p>
-    <a class="sound-btn" href="#" target="_blank" rel="noopener">TikTok 공식 계정 바로가기 [링크 입력 예정]</a>
+    <p class="ref-note">
+      LUN8(루네이트)은 아스트로(ASTRO) 차은우가 속한 바로 그 소속사가 선보이는 다국적 보이그룹으로, 아스트로의 동생 그룹이에요.<br><br>
+      '어두운 밤을 환히 밝히는 달빛을 품은 소년'이라는 뜻을 담고 있으며, 리스너들에게 긍정적인 에너지를 전하겠다는 포부를 가진 그룹입니다.<br><br>
+      이번 SNEAKERS 챌린지는 LUN8이 일본 팬덤에 제대로 이름을 알릴 수 있는 첫 기회예요 — 여러분 덕분에 LUN8이 일본에서도 사랑받을 수 있어요!
+    </p>
+    <a class="sound-btn" href="https://www.tiktok.com/@lun8_official?lang=ko-KR" target="_blank" rel="noopener">TikTok 공식 계정 바로가기</a>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 리워드 -->
+  <div class="section">
+    <div class="eyebrow">REWARD</div>
+    <h2>리워드 안내</h2>
+    <p class="ref-note">참여 방식에 따라 리워드가 중복으로 적립돼요. 프라이빗한 혜택이 쏟아집니다!</p>
+    <div class="reward-cards">
+      <div class="reward-card"><div class="reward-num">1</div><div class="reward-text"><b>기본 참여 (TikTok)</b><span>¥5,000 상당</span></div></div>
+      <div class="reward-card"><div class="reward-num">2</div><div class="reward-text"><b>TikTok + Instagram 동시 참여 (미러링)</b><span>¥12,000 상당</span></div></div>
+      <div class="reward-card"><div class="reward-num">3</div><div class="reward-text"><b>내가 추천한 친구가 업로드 완료 시</b><span>친구 1인당 ¥5,000 상당</span></div></div>
+      <div class="reward-card"><div class="reward-num">4</div><div class="reward-text"><b>전체 콘텐츠 업로드 완료 후 우수상 (20명)</b><span>¥10,000 상당</span></div></div>
+    </div>
   </div>
 
   <div class="divider"></div>
@@ -159,10 +215,11 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
     <h2>캠페인 개요</h2>
     <div class="overview">
       <div class="ov-card"><div class="ov-label">아티스트</div><div class="ov-value">LUN8</div></div>
-      <div class="ov-card"><div class="ov-label">곡명</div><div class="ov-value">[입력 예정]</div></div>
-      <div class="ov-card"><div class="ov-label">게시 기간</div><div class="ov-value">[입력 예정]</div></div>
-      <div class="ov-card"><div class="ov-label">플랫폼</div><div class="ov-value">TikTok</div></div>
+      <div class="ov-card"><div class="ov-label">곡명</div><div class="ov-value">SNEAKERS</div></div>
+      <div class="ov-card"><div class="ov-label">업로드 기간</div><div class="ov-value">7/23 - 8/4</div></div>
+      <div class="ov-card"><div class="ov-label">플랫폼</div><div class="ov-value">TikTok / Instagram</div></div>
     </div>
+    <p class="ref-note">업로드 후 최소 <b>1개월 이상</b> 삭제 없이 유지해주세요.</p>
   </div>
 
   <div class="divider"></div>
@@ -172,13 +229,9 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
     <div class="eyebrow">REFERENCE</div>
     <h2>참고 안무 영상</h2>
     <p class="ref-note">탭하면 새 탭에서 영상이 열려요. 안무 참고용으로 확인해주세요 💃</p>
-    <a class="video-card" href="#" target="_blank" rel="noopener">
+    <a class="video-card" href="https://drive.google.com/file/d/1d11ZMFvzbGCYkEVZFjFTa3146SWUFtvq/edit" target="_blank" rel="noopener">
       <div class="play-icon">▶</div>
-      <div class="video-info"><strong>참고 영상①</strong><span>[링크 입력 예정]</span></div>
-    </a>
-    <a class="video-card" href="#" target="_blank" rel="noopener">
-      <div class="play-icon">▶</div>
-      <div class="video-info"><strong>참고 영상②</strong><span>[링크 입력 예정]</span></div>
+      <div class="video-info"><strong>SNEAKERS 참고 안무 영상</strong><span>Google Drive에서 보기</span></div>
     </a>
   </div>
 
@@ -188,10 +241,10 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
   <div class="section">
     <div class="eyebrow">REQUIRED</div>
     <h2>공식 음원 필수</h2>
-    <a class="sound-btn" href="#" target="_blank" rel="noopener">🎵 공식 음원 바로가기 [링크 입력 예정]</a>
+    <p class="ref-note">공식 음원은 <b>7/22 발매 예정</b>이에요. 발매 후 음원 링크를 별도로 안내드릴게요.</p>
     <div class="warn">
       <b>반드시 공식 음원을 사용해주세요</b>
-      <p>오리지널 사운드가 아니라, 위 링크의 공식 음원을 반드시 사용하여 게시해주세요. 원음으로 게시할 경우 대상에서 제외됩니다.</p>
+      <p>오리지널 사운드가 아니라, 공식 음원을 반드시 사용하여 게시해주세요. 원음으로 게시할 경우 대상에서 제외됩니다.</p>
     </div>
   </div>
 
@@ -200,7 +253,7 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
     <div class="eyebrow">REQUIRED</div>
     <h2>필수 해시태그</h2>
     <div class="hashtag-row">
-      <div class="tags-text">[해시태그 입력 예정]</div>
+      <div class="tags-text">#루네이트 #LUN8 #SNEAKERS</div>
       <button class="copybtn" id="tagCopyBtn" onclick="cp(this)">복사</button>
     </div>
   </div>
@@ -212,11 +265,11 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
     <div class="eyebrow">HOW TO JOIN</div>
     <h2>참여 방법</h2>
     <div class="steps">
-      <div class="step"><div class="step-num">01</div><div class="step-text">아래 <b>응모 폼</b>에 필요한 정보를 입력 후 제출</div></div>
+      <div class="step"><div class="step-num">01</div><div class="step-text">아래 <b>응모 폼</b>에서 내 정보·참여 플랫폼·업로드 일정을 입력 후 제출</div></div>
       <div class="step"><div class="step-num">02</div><div class="step-text">확인 후 담당자로부터 <b>확정 안내</b></div></div>
-      <div class="step"><div class="step-num">03</div><div class="step-text"><b>공식 음원</b>을 사용해 TikTok에서 댄스 영상 촬영</div></div>
-      <div class="step"><div class="step-num">04</div><div class="step-text"><b>필수 해시태그</b>와 공식 음원을 태그하여, <b>[게시 기간 입력 예정]</b> 사이에 게시</div></div>
-      <div class="step"><div class="step-num">05</div><div class="step-text"><b>[리워드 입력 예정]</b> 증정</div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-text"><b>공식 음원</b>을 사용해 선택한 플랫폼에서 댄스 영상 촬영</div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-text"><b>필수 해시태그</b>와 공식 음원을 태그하여, <b>7/23 - 8/4</b> 사이에 게시</div></div>
+      <div class="step"><div class="step-num">05</div><div class="step-text">확인 후 <b>리워드</b> 증정, 우수 참여자에게는 추가 리워드도!</div></div>
     </div>
   </div>
 
@@ -229,9 +282,10 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
     <div class="tl">
       <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">~선착순</div><div class="tl-label">응모 접수</div></div></div>
       <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">약 1~2일 후</div><div class="tl-label">확정 연락</div></div></div>
-      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">[입력 예정]</div><div class="tl-label">챌린지 게시 기간</div></div></div>
-      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">게시 후</div><div class="tl-label">업로드 확인</div></div></div>
-      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div></div><div class="tl-body"><div class="tl-date">확인 후</div><div class="tl-label">[리워드 입력 예정] 증정</div></div></div>
+      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">7/22</div><div class="tl-label">공식 음원 발매</div></div></div>
+      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">7/23 - 8/4</div><div class="tl-label">챌린지 업로드 기간</div></div></div>
+      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><div class="tl-date">업로드 후</div><div class="tl-label">최소 1개월 이상 유지</div></div></div>
+      <div class="tl-row"><div class="tl-dotcol"><div class="tl-dot"></div></div><div class="tl-body"><div class="tl-date">확인 후</div><div class="tl-label">리워드 증정 · 우수상 20명 발표</div></div></div>
     </div>
   </div>
 
@@ -241,49 +295,149 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
   <div class="section" style="padding-bottom:40px">
     <div class="eyebrow">APPLY</div>
     <h2>응모 폼</h2>
-    <p class="form-note">꼭 필요한 항목만 담은 간단한 폼이에요. 1분이면 완료됩니다.</p>
+    <p class="form-note">총 5단계, 2분이면 완료돼요.</p>
 
-    <form id="applyForm" class="apply-fields">
-      <div class="field">
-        <div class="field-label">TikTok 계정 링크</div>
-        <input type="text" name="tiktok" placeholder="https://www.tiktok.com/@아이디">
-      </div>
+    <div class="step-progress" id="stepProgress">
+      <div class="step-dot active"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+    </div>
 
-      <div class="field">
-        <div class="field-label">Instagram 계정 링크</div>
-        <input type="text" name="instagram" placeholder="https://www.instagram.com/아이디">
-        <div class="hint">TikTok·Instagram 중 최소 1개는 입력해주세요</div>
-      </div>
-
-      <div class="field">
-        <div class="field-label">이메일 주소</div>
-        <input type="email" name="email" placeholder="example@email.com">
-      </div>
-
-      <div class="field">
-        <div class="field-label">게시 예정일</div>
-        <input type="date" name="postdate">
-        <div class="hint">게시 기간: [입력 예정]</div>
-      </div>
-
-      <div class="field">
-        <div class="field-label">연락처(전화번호 또는 라인 ID)</div>
-        <input type="text" name="contact" placeholder="연락 가능한 방법을 적어주세요">
-      </div>
-
-      <label class="checkfield">
-        <input type="checkbox" id="agree" name="agree" required>
-        <span><b style="color:var(--accent)">(필수)</b> 네, 내용을 확인했으며 동의합니다. (공식 음원 사용·필수 해시태그 등 유의사항 포함)</span>
-      </label>
-
-      <label class="checkfield">
-        <input type="checkbox" id="moreInfo" name="moreInfo">
-        <span><b style="color:var(--gray-3)">(선택)</b> 다른 아티스트 댄스 챌린지 소식도 받아보고 싶어요.</span>
-      </label>
+    <form id="applyForm" class="apply-fields" style="margin-top:20px">
 
       <div class="form-error" id="formError"></div>
 
-      <button type="submit" class="submit-btn">응모하기!</button>
+      <!-- STEP 1 : 내 정보 -->
+      <div class="form-step active">
+        <div class="step-title">STEP 1 · 내 정보 (필수 확인)</div>
+
+        <div class="field">
+          <div class="field-label">이름 / 활동명(닉네임)</div>
+          <input type="text" name="name" placeholder="이름 또는 닉네임을 입력해주세요">
+        </div>
+        <div class="field">
+          <div class="field-label">이메일 주소</div>
+          <input type="email" name="email" placeholder="example@email.com">
+        </div>
+        <div class="field">
+          <div class="field-label">연락처 (전화번호 또는 라인 ID)</div>
+          <input type="text" name="contact" placeholder="연락 가능한 방법을 적어주세요">
+        </div>
+
+        <div class="warn">
+          <b>팔로워 조건 확인 (필수)</b>
+          <p>팔로워 1,000명 이상입니까?</p>
+          <div class="radio-row" style="margin-top:10px">
+            <label class="radio-opt"><input type="radio" name="follower1000" value="Y">예, 1,000명 이상입니다</label>
+            <label class="radio-opt"><input type="radio" name="follower1000" value="N">아니요</label>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <button type="button" class="btn-next">다음</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 : 플랫폼 선택 -->
+      <div class="form-step">
+        <div class="step-title">STEP 2 · 참여 플랫폼 선택 (미러링 가능)</div>
+
+        <div class="platform-options">
+          <label class="platform-card">
+            <input type="radio" name="platform" value="tiktok">
+            <div><b>TikTok만 참여</b><small>틱톡 영상 1개 업로드 · ¥5,000 상당</small></div>
+          </label>
+          <label class="platform-card">
+            <input type="radio" name="platform" value="instagram">
+            <div><b>Instagram만 참여</b><small>인스타 릴스 1개 업로드 · ¥5,000 상당</small></div>
+          </label>
+          <label class="platform-card">
+            <input type="radio" name="platform" value="both">
+            <div><b>TikTok + Instagram 동시 참여 (미러링)</b><small>양쪽 모두 업로드 · ¥12,000 상당</small></div>
+          </label>
+        </div>
+
+        <div class="warn" id="mirrorWarn" style="display:none">
+          <b>⚠ 동시 참여 시 반드시 확인해주세요</b>
+          <p>TikTok과 Instagram에 동시 참여하는 경우, 두 영상은 <b>구도와 배경이 서로 달라야</b> 합니다. 동일한 영상을 그대로 재사용하는 것은 인정되지 않아요.</p>
+        </div>
+
+        <div class="field" id="tiktokField" style="display:none">
+          <div class="field-label">TikTok 계정 링크</div>
+          <input type="text" name="tiktok" placeholder="https://www.tiktok.com/@아이디">
+        </div>
+        <div class="field" id="instagramField" style="display:none">
+          <div class="field-label">Instagram 계정 링크</div>
+          <input type="text" name="instagram" placeholder="https://www.instagram.com/아이디">
+        </div>
+
+        <div class="step-nav">
+          <button type="button" class="btn-prev">이전</button>
+          <button type="button" class="btn-next">다음</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 : 업로드 일정 -->
+      <div class="form-step">
+        <div class="step-title">STEP 3 · 업로드 일정</div>
+
+        <div class="field">
+          <div class="field-label">업로드 예정일</div>
+          <input type="date" name="postdate" min="2026-07-23" max="2026-08-04">
+          <div class="hint">업로드 기간: 7/23 - 8/4 · 신중하게 기입해주세요. 해당 일정을 기준으로 콘텐츠를 확인하며, 확인 후 2~3일 내 수정 요청이 있을 수 있어요.</div>
+        </div>
+
+        <div class="step-nav">
+          <button type="button" class="btn-prev">이전</button>
+          <button type="button" class="btn-next">다음</button>
+        </div>
+      </div>
+
+      <!-- STEP 4 : 친구 추천 -->
+      <div class="form-step">
+        <div class="step-title">STEP 4 · 친구 추천 (선택, 조건 필수 확인)</div>
+        <p class="ref-note">친구를 추천하고, 그 친구가 챌린지를 업로드하면 <b>친구 1인당 ¥5,000 상당</b>의 리워드를 드려요.</p>
+
+        <div class="share-box">
+          <div class="field-label">친구에게 챌린지 공유하기</div>
+          <div class="share-link-row">
+            <input type="text" id="shareLink" readonly>
+            <button type="button" class="copybtn" onclick="copyShare(this)">복사</button>
+          </div>
+          <div class="hint">복사한 링크를 친구에게 바로 전달해주세요. 또는 아래에 친구의 SNS 링크와 이메일을 남겨주셔도 좋아요.</div>
+        </div>
+
+        <div class="warn">
+          <b>친구 추천 조건 (필수 확인)</b>
+          <p>추천한 친구도 반드시 챌린지를 업로드해야 하며, 추천한 친구도 <b>팔로워 1,000명 이상</b>이어야 리워드가 인정돼요.</p>
+        </div>
+
+        <div id="friendList" style="display:flex;flex-direction:column;gap:10px"></div>
+        <button type="button" class="add-friend-btn" id="addFriendBtn">+ 친구 추가</button>
+
+        <div class="step-nav">
+          <button type="button" class="btn-prev">이전</button>
+          <button type="button" class="btn-next">다음</button>
+        </div>
+      </div>
+
+      <!-- STEP 5 : 최종 확인 -->
+      <div class="form-step">
+        <div class="step-title">STEP 5 · 최종 확인</div>
+
+        <label class="checkfield">
+          <input type="checkbox" id="agree" name="agree" required>
+          <span><b style="color:var(--accent)">(필수)</b> 네, 내용을 확인했으며 동의합니다. (공식 음원 사용 · 필수 해시태그 · 동시 참여 시 구도/배경 구분 등 유의사항 포함)</span>
+        </label>
+
+        <div class="step-nav">
+          <button type="button" class="btn-prev">이전</button>
+          <button type="submit" class="submit-btn">응모하기!</button>
+        </div>
+      </div>
+
     </form>
 
     <div class="success-box" id="successBox">
@@ -304,44 +458,142 @@ function cp(btn){
   navigator.clipboard.writeText(text).then(()=>{btn.textContent='복사됨!';btn.classList.add('done');setTimeout(()=>{btn.textContent='복사';btn.classList.remove('done')},1500)});
 }
 
+function copyShare(btn){
+  const link = window.location.href;
+  const msg = 'LUN8 SNEAKERS 댄스 챌린지 같이 참여해요! 🎁\n' + link;
+  navigator.clipboard.writeText(msg).then(()=>{
+    btn.textContent='복사됨!'; btn.classList.add('done');
+    setTimeout(()=>{btn.textContent='복사'; btn.classList.remove('done')},1500);
+  });
+}
+document.getElementById('shareLink').value = window.location.href;
+
+// ---- 플랫폼 선택 카드 ----
+document.querySelectorAll('.platform-card').forEach(function(card){
+  card.addEventListener('click', function(){
+    document.querySelectorAll('.platform-card').forEach(function(c){ c.classList.remove('selected'); });
+    card.classList.add('selected');
+    card.querySelector('input').checked = true;
+    updatePlatformFields();
+  });
+});
+function updatePlatformFields(){
+  const checked = document.querySelector('input[name="platform"]:checked');
+  const val = checked ? checked.value : '';
+  document.getElementById('tiktokField').style.display = (val==='tiktok'||val==='both') ? 'block' : 'none';
+  document.getElementById('instagramField').style.display = (val==='instagram'||val==='both') ? 'block' : 'none';
+  document.getElementById('mirrorWarn').style.display = (val==='both') ? 'block' : 'none';
+}
+
+// ---- 팔로워 조건 라디오 ----
+document.querySelectorAll('.radio-opt').forEach(function(opt){
+  opt.addEventListener('click', function(){
+    const name = opt.querySelector('input').name;
+    document.querySelectorAll('input[name="'+name+'"]').forEach(function(i){ i.closest('.radio-opt').classList.remove('selected'); });
+    opt.classList.add('selected');
+    opt.querySelector('input').checked = true;
+  });
+});
+
+// ---- 친구 추가 ----
+document.getElementById('addFriendBtn').addEventListener('click', function(){
+  const wrap = document.getElementById('friendList');
+  const div = document.createElement('div');
+  div.className = 'friend-row';
+  div.innerHTML = '<button type="button" class="friend-remove" aria-label="삭제">✕</button>' +
+    '<div class="field-label">친구 SNS 링크 (TikTok 또는 Instagram)</div>' +
+    '<input type="text" name="friendLink" placeholder="https://www.tiktok.com/@friend_id">' +
+    '<div class="field-label">친구 이메일</div>' +
+    '<input type="email" name="friendEmail" placeholder="friend@email.com">';
+  div.querySelector('.friend-remove').addEventListener('click', function(){ div.remove(); });
+  wrap.appendChild(div);
+});
+
+// ---- 스텝 네비게이션 ----
+const steps = Array.from(document.querySelectorAll('.form-step'));
+const dots = Array.from(document.querySelectorAll('.step-dot'));
+let currentStep = 0;
+const form = document.getElementById('applyForm');
+const errorBox = document.getElementById('formError');
+
+function showStep(i){
+  steps.forEach(function(s,idx){ s.classList.toggle('active', idx===i); });
+  dots.forEach(function(d,idx){ d.classList.toggle('active', idx<=i); });
+  currentStep = i;
+  errorBox.style.display = 'none';
+}
+
+function validateStep(i){
+  if(i===0){
+    if(!form.name.value.trim() || !form.email.value.trim() || !form.contact.value.trim()){
+      errorBox.textContent = '이름, 이메일, 연락처를 모두 입력해주세요.'; errorBox.style.display='block'; return false;
+    }
+    if(!form.querySelector('input[name="follower1000"]:checked')){
+      errorBox.textContent = '팔로워 조건을 선택해주세요.'; errorBox.style.display='block'; return false;
+    }
+  }
+  if(i===1){
+    const platform = form.querySelector('input[name="platform"]:checked');
+    if(!platform){ errorBox.textContent = '참여 플랫폼을 선택해주세요.'; errorBox.style.display='block'; return false; }
+    const val = platform.value;
+    if((val==='tiktok'||val==='both') && !form.tiktok.value.trim()){ errorBox.textContent = 'TikTok 계정 링크를 입력해주세요.'; errorBox.style.display='block'; return false; }
+    if((val==='instagram'||val==='both') && !form.instagram.value.trim()){ errorBox.textContent = 'Instagram 계정 링크를 입력해주세요.'; errorBox.style.display='block'; return false; }
+  }
+  if(i===2){
+    if(!form.postdate.value){ errorBox.textContent = '업로드 예정일을 선택해주세요.'; errorBox.style.display='block'; return false; }
+  }
+  errorBox.style.display = 'none';
+  return true;
+}
+
+document.querySelectorAll('.btn-next').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    if(validateStep(currentStep) && currentStep < steps.length-1){ showStep(currentStep+1); }
+  });
+});
+document.querySelectorAll('.btn-prev').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    if(currentStep>0){ showStep(currentStep-1); }
+  });
+});
+
 // 구글시트에 응답을 저장하는 Apps Script 웹앱 URL. google-apps-script.gs 안내에 따라
 // 배포한 뒤 발급되는 "...../exec" 링크를 여기에 넣으면 실제 저장이 시작된다.
 const GOOGLE_SCRIPT_URL = '';
 
-document.getElementById('applyForm').addEventListener('submit', function(e){
+form.addEventListener('submit', function(e){
   e.preventDefault();
-  const form = this;
-  const errorBox = document.getElementById('formError');
-  const tiktok = form.tiktok.value.trim();
-  const instagram = form.instagram.value.trim();
-  const agree = form.agree.checked;
-  if(!tiktok && !instagram){
-    errorBox.textContent = 'TikTok·Instagram 중 최소 1개는 입력해주세요.';
-    errorBox.style.display = 'block';
-    return;
-  }
-  if(!agree){
-    errorBox.textContent = '유의사항 확인 및 동의가 필요해요.';
-    errorBox.style.display = 'block';
-    return;
+  if(!form.agree.checked){
+    errorBox.textContent = '유의사항 확인 및 동의가 필요해요.'; errorBox.style.display = 'block'; return;
   }
   errorBox.style.display = 'none';
+
+  const friendLinks = Array.from(form.querySelectorAll('input[name="friendLink"]')).map(function(i){ return i.value.trim(); });
+  const friendEmails = Array.from(form.querySelectorAll('input[name="friendEmail"]')).map(function(i){ return i.value.trim(); });
+  const friends = friendLinks.map(function(l,idx){ return l ? (l + ' (' + (friendEmails[idx]||'이메일 없음') + ')') : ''; }).filter(Boolean).join(' / ');
+
+  const platform = form.querySelector('input[name="platform"]:checked');
+  const follower1000 = form.querySelector('input[name="follower1000"]:checked');
 
   if(GOOGLE_SCRIPT_URL){
     const body = new URLSearchParams({
       lang: 'ko',
-      tiktok: tiktok,
-      instagram: instagram,
+      name: form.name.value.trim(),
       email: form.email.value.trim(),
-      postdate: form.postdate.value,
       contact: form.contact.value.trim(),
-      agree: agree ? 'Y' : 'N',
-      moreInfo: form.moreInfo.checked ? 'Y' : 'N'
+      follower1000: follower1000 ? follower1000.value : '',
+      platform: platform ? platform.value : '',
+      tiktok: form.tiktok.value.trim(),
+      instagram: form.instagram.value.trim(),
+      postdate: form.postdate.value,
+      friends: friends,
+      agree: form.agree.checked ? 'Y' : 'N'
     });
-    fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: body }).catch(()=>{});
+    fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: body }).catch(function(){});
   }
 
   form.style.display = 'none';
+  document.getElementById('stepProgress').style.display = 'none';
   document.getElementById('successBox').style.display = 'block';
 });
 </script>
