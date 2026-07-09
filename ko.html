@@ -465,9 +465,8 @@ function cp(btn){
 }
 
 function copyShare(btn){
-  const link = window.location.href;
-  const msg = 'LUN8 SNEAKERS 댄스 챌린지 같이 참여해요! 🎁\n' + link;
-  navigator.clipboard.writeText(msg).then(()=>{
+  const link = document.getElementById('shareLink').value;
+  navigator.clipboard.writeText(link).then(()=>{
     btn.textContent='복사됨!'; btn.classList.add('done');
     setTimeout(()=>{btn.textContent='복사'; btn.classList.remove('done')},1500);
   });
