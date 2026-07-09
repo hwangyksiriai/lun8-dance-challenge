@@ -560,7 +560,6 @@ form.addEventListener('submit', function(e){
 
   const friendLinks = Array.from(form.querySelectorAll('input[name="friendLink"]')).map(function(i){ return i.value.trim(); });
   const friendEmails = Array.from(form.querySelectorAll('input[name="friendEmail"]')).map(function(i){ return i.value.trim(); });
-  const friends = friendLinks.map(function(l,idx){ return l ? (l + ' (' + (friendEmails[idx]||'이메일 없음') + ')') : ''; }).filter(Boolean).join(' / ');
 
   const platform = form.querySelector('input[name="platform"]:checked');
   const follower1000 = form.querySelector('input[name="follower1000"]:checked');
@@ -576,8 +575,12 @@ form.addEventListener('submit', function(e){
       tiktok: form.tiktok.value.trim(),
       instagram: form.instagram.value.trim(),
       postdate: form.postdate.value,
-      friends: friends,
       agree: form.agree.checked ? 'Y' : 'N'
+    });
+    friendLinks.forEach(function(link, idx){
+      if(!link) return;
+      body.append('friendLink', link);
+      body.append('friendEmail', friendEmails[idx] || '');
     });
     fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: body }).catch(function(){});
   }
