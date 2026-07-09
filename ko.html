@@ -4,6 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>LUN8 SNEAKERS 댄스 챌린지 | TikTok·Instagram 미러링 모집</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="LUN8 「SNEAKERS」 댄스 챌린지">
+<meta property="og:description" content="TikTok·Instagram 동시 미러링 모집 · 최대 ¥30,000+ 상당의 프라이빗 챌린지">
+<meta property="og:image" content="https://lun8-dance-challenge.vercel.app/banner.jpg">
+<meta property="og:url" content="https://lun8-dance-challenge.vercel.app/ko.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lun8-dance-challenge.vercel.app/banner.jpg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <style>
 :root{
@@ -206,7 +213,7 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
   <div class="section">
     <div class="eyebrow">ABOUT</div>
     <h2>LUN8 소개</h2>
-    <img class="about-img" src="./배너.jfif" alt="LUN8 SNEAKERS 배너">
+    <img class="about-img" src="./banner.jpg" alt="LUN8 SNEAKERS 배너">
     <p class="ref-note">
       LUN8(루네이트)은 아스트로(ASTRO) 차은우가 속한 바로 그 소속사가 선보이는 다국적 보이그룹으로, 아스트로의 동생 그룹이에요.<br><br>
       '어두운 밤을 환히 밝히는 달빛을 품은 소년'이라는 뜻을 담고 있으며, 리스너들에게 긍정적인 에너지를 전하겠다는 포부를 가진 그룹입니다.<br><br>
@@ -535,7 +542,7 @@ addFriendBtn.addEventListener('click', function(){
     '<div class="field-label">친구 SNS 링크 (TikTok 또는 Instagram)</div>' +
     '<input type="text" name="friendLink" placeholder="https://www.tiktok.com/friend_id">' +
     '<div class="field-label">친구 이메일</div>' +
-    '<input type="text" name="friendEmail" placeholder="friend@email.com 또는 SNS 아이디">';
+    '<input type="text" name="friendEmail" placeholder="friend@email.com 또는 모름">';
   div.querySelector('.friend-remove').addEventListener('click', function(){ div.remove(); updateAddFriendBtnState(); });
   friendListEl.appendChild(div);
   updateAddFriendBtnState();
@@ -563,6 +570,8 @@ function focusInvalid(target, message){
   errorBox.textContent = message;
   errorBox.style.display = 'block';
   if(target){
+    var anchor = target.closest('.field') || target.closest('.checkfield') || target.closest('.warn') || target;
+    anchor.insertAdjacentElement('afterend', errorBox);
     target.scrollIntoView({behavior:'smooth', block:'center'});
     target.classList.add('invalid');
     setTimeout(function(){ target.classList.remove('invalid'); }, 2000);
@@ -606,6 +615,30 @@ document.querySelectorAll('.btn-prev').forEach(function(btn){
   });
 });
 
+// 핸들(@아이디)이나 아이디만 입력해도 시트에는 항상 전체 링크로 저장되도록 정규화.
+function normalizeSocialUrl(raw, platform){
+  var v = (raw || '').trim();
+  if(!v) return '';
+  var domain = platform === 'tiktok' ? 'tiktok.com' : 'instagram.com';
+  if(v.toLowerCase().indexOf(domain) !== -1){
+    if(!/^https?:\/\//i.test(v)) v = 'https://' + v.replace(/^\/+/, '');
+    return v;
+  }
+  if(/^https?:\/\//i.test(v)) return v;
+  var handle = v.replace(/^@+/, '').replace(/\/+$/, '');
+  return platform === 'tiktok'
+    ? 'https://www.tiktok.com/@' + handle
+    : 'https://www.instagram.com/' + handle + '/';
+}
+// 친구 링크는 플랫폼을 특정할 수 없어, 도메인이 이미 포함된 경우에만 프로토콜을 보정한다.
+function normalizeAnySocialUrl(raw){
+  var v = (raw || '').trim();
+  if(!v) return '';
+  if(/^https?:\/\//i.test(v)) return v;
+  if(/tiktok\.com|instagram\.com/i.test(v)) return 'https://' + v.replace(/^\/+/, '');
+  return v;
+}
+
 // 구글시트에 응답을 저장하는 Apps Script 웹앱 URL. google-apps-script.gs 안내에 따라
 // 배포한 뒤 발급되는 "...../exec" 링크를 여기에 넣으면 실제 저장이 시작된다.
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz4P9TQApF0Fu1xTDQlMAf6eLlVTJ3N3Q7yM2BJr7jME5Wb91FGh3Q-3jdnfJkfz9fi/exec';
@@ -631,14 +664,14 @@ form.addEventListener('submit', function(e){
       contact: form.contact.value.trim(),
       follower1000: follower1000 ? follower1000.value : '',
       platform: platform ? platform.value : '',
-      tiktok: form.tiktok.value.trim(),
-      instagram: form.instagram.value.trim(),
+      tiktok: normalizeSocialUrl(form.tiktok.value, 'tiktok'),
+      instagram: normalizeSocialUrl(form.instagram.value, 'instagram'),
       postdate: form.postdate.value,
       agree: form.agree.checked ? 'Y' : 'N'
     });
     friendLinks.forEach(function(link, idx){
       if(!link) return;
-      body.append('friendLink', link);
+      body.append('friendLink', normalizeAnySocialUrl(link));
       body.append('friendEmail', friendEmails[idx] || '');
     });
     fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: body }).catch(function(){});
