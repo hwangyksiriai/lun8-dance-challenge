@@ -4,8 +4,10 @@
  * 설치 방법:
  * 1. 새 구글 시트를 만들고(또는 이번 캠페인용으로 만들어둔 시트를 연다)
  *    첫 번째 시트 1행에 다음 헤더를 순서대로 넣어두면 보기 편하다:
- *    timestamp / lang / name / email / contact / follower1000 / platform / tiktok / instagram / postdate / agree / friend_links / friend_emails
- *    (친구를 여러 명 추천한 경우 friend_links, friend_emails 칸에 쉼표로 구분되어 함께 들어간다)
+ *    timestamp / lang / name / email / contact / follower1000 / platform / tiktok / instagram / postdate / agree /
+ *    friend1_link / friend1_email / friend2_link / friend2_email / friend3_link / friend3_email /
+ *    friend4_link / friend4_email / friend5_link / friend5_email
+ *    (친구는 최대 5명까지 각각 별도 칸에 들어간다. 폼에서도 5명까지만 추가 가능하도록 제한돼 있다)
  * 2. 상단 메뉴 확장 프로그램 > Apps Script 클릭
  * 3. 기본으로 있는 코드를 지우고 이 파일 내용을 전부 붙여넣기
  * 4. 우측 상단 배포 > 새 배포 클릭
@@ -15,7 +17,14 @@
  * 8. 발급된 "웹 앱 URL"(...../exec 로 끝남)을 ko.html, ja.html의 GOOGLE_SCRIPT_URL 에 넣으면 저장이 시작된다.
  */
 
-var MAIN_HEADERS = ['timestamp','lang','name','email','contact','follower1000','platform','tiktok','instagram','postdate','agree','friend_links','friend_emails'];
+var FRIEND_MAX = 5;
+var MAIN_HEADERS = (function(){
+  var headers = ['timestamp','lang','name','email','contact','follower1000','platform','tiktok','instagram','postdate','agree'];
+  for (var i = 1; i <= FRIEND_MAX; i++) {
+    headers.push('friend' + i + '_link', 'friend' + i + '_email');
+  }
+  return headers;
+})();
 
 function doPost(e) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
@@ -28,7 +37,7 @@ function doPost(e) {
   var friendLinks = ((e.parameters && e.parameters.friendLink) || []).filter(function(v){ return v; });
   var friendEmails = ((e.parameters && e.parameters.friendEmail) || []).filter(function(v){ return v; });
 
-  sheet.appendRow([
+  var row = [
     new Date(),
     p.lang || '',
     p.name || '',
@@ -39,10 +48,14 @@ function doPost(e) {
     p.tiktok || '',
     p.instagram || '',
     p.postdate || '',
-    p.agree || '',
-    friendLinks.join(', '),
-    friendEmails.join(', ')
-  ]);
+    p.agree || ''
+  ];
+
+  for (var i = 0; i < FRIEND_MAX; i++) {
+    row.push(friendLinks[i] || '', friendEmails[i] || '');
+  }
+
+  sheet.appendRow(row);
 
   return ContentService
     .createTextOutput(JSON.stringify({ result: 'success' }))

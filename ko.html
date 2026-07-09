@@ -513,9 +513,21 @@ function updatePlatformFields(){
   document.getElementById('mirrorWarn').style.display = (val==='both') ? 'block' : 'none';
 }
 
-// ---- 친구 추가 ----
-document.getElementById('addFriendBtn').addEventListener('click', function(){
-  const wrap = document.getElementById('friendList');
+// ---- 친구 추가 (최대 5명) ----
+const FRIEND_MAX = 5;
+const friendListEl = document.getElementById('friendList');
+const addFriendBtn = document.getElementById('addFriendBtn');
+
+function updateAddFriendBtnState(){
+  const reachedMax = friendListEl.children.length >= FRIEND_MAX;
+  addFriendBtn.disabled = reachedMax;
+  addFriendBtn.textContent = reachedMax ? '최대 5명까지 추가할 수 있어요' : '+ 친구 추가';
+  addFriendBtn.style.opacity = reachedMax ? '.5' : '1';
+  addFriendBtn.style.cursor = reachedMax ? 'default' : 'pointer';
+}
+
+addFriendBtn.addEventListener('click', function(){
+  if(friendListEl.children.length >= FRIEND_MAX) return;
   const div = document.createElement('div');
   div.className = 'friend-row';
   div.innerHTML = '<button type="button" class="friend-remove" aria-label="삭제">✕</button>' +
@@ -523,8 +535,9 @@ document.getElementById('addFriendBtn').addEventListener('click', function(){
     '<input type="text" name="friendLink" placeholder="https://www.tiktok.com/friend_id">' +
     '<div class="field-label">친구 이메일</div>' +
     '<input type="email" name="friendEmail" placeholder="friend@email.com">';
-  div.querySelector('.friend-remove').addEventListener('click', function(){ div.remove(); });
-  wrap.appendChild(div);
+  div.querySelector('.friend-remove').addEventListener('click', function(){ div.remove(); updateAddFriendBtnState(); });
+  friendListEl.appendChild(div);
+  updateAddFriendBtnState();
 });
 
 // ---- 스텝 네비게이션 ----
