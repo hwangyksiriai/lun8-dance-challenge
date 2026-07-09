@@ -371,7 +371,7 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
 
         <div class="field" id="tiktokField" style="display:none">
           <div class="field-label">TikTok 계정 링크</div>
-          <input type="text" name="tiktok" placeholder="https://www.tiktok.com/@아이디">
+          <input type="text" name="tiktok" placeholder="https://www.tiktok.com/아이디">
         </div>
         <div class="field" id="instagramField" style="display:none">
           <div class="field-label">Instagram 계정 링크</div>
@@ -507,7 +507,7 @@ document.getElementById('addFriendBtn').addEventListener('click', function(){
   div.className = 'friend-row';
   div.innerHTML = '<button type="button" class="friend-remove" aria-label="삭제">✕</button>' +
     '<div class="field-label">친구 SNS 링크 (TikTok 또는 Instagram)</div>' +
-    '<input type="text" name="friendLink" placeholder="https://www.tiktok.com/@friend_id">' +
+    '<input type="text" name="friendLink" placeholder="https://www.tiktok.com/friend_id">' +
     '<div class="field-label">친구 이메일</div>' +
     '<input type="email" name="friendEmail" placeholder="friend@email.com">';
   div.querySelector('.friend-remove').addEventListener('click', function(){ div.remove(); });

@@ -371,7 +371,7 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
 
         <div class="field" id="tiktokField" style="display:none">
           <div class="field-label">TikTokアカウントリンク</div>
-          <input type="text" name="tiktok" placeholder="https://www.tiktok.com/@your_id">
+          <input type="text" name="tiktok" placeholder="https://www.tiktok.com/your_id">
         </div>
         <div class="field" id="instagramField" style="display:none">
           <div class="field-label">Instagramアカウントリンク</div>
@@ -507,7 +507,7 @@ document.getElementById('addFriendBtn').addEventListener('click', function(){
   div.className = 'friend-row';
   div.innerHTML = '<button type="button" class="friend-remove" aria-label="削除">✕</button>' +
     '<div class="field-label">友達のSNSリンク (TikTokまたはInstagram)</div>' +
-    '<input type="text" name="friendLink" placeholder="https://www.tiktok.com/@friend_id">' +
+    '<input type="text" name="friendLink" placeholder="https://www.tiktok.com/friend_id">' +
     '<div class="field-label">友達のメールアドレス</div>' +
     '<input type="email" name="friendEmail" placeholder="friend@email.com">';
   div.querySelector('.friend-remove').addEventListener('click', function(){ div.remove(); });
