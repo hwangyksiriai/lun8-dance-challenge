@@ -3,10 +3,12 @@
  *
  * 설치 방법:
  * 1. 새 구글 시트를 만들고(또는 이번 캠페인용으로 만들어둔 시트를 연다)
- *    첫 번째 시트 1행에 다음 헤더를 순서대로 넣어두면 보기 편하다:
- *    timestamp / lang / name / email / contact / follower1000 / platform / tiktok / instagram / postdate / agree /
- *    friend1_link / friend1_email / friend2_link / friend2_email / friend3_link / friend3_email /
- *    friend4_link / friend4_email / friend5_link / friend5_email
+ *    첫 번째 시트 1행에 다음 헤더를 순서대로 넣어두면 보기 편하다 (읽기 쉬운 한글 라벨,
+ *    실제 값은 이 순서대로만 채워지면 되므로 헤더 텍스트는 자유롭게 바꿔도 코드 동작에는 영향 없음.
+ *    단, 열 순서를 바꾸거나 중간에 새 열을 끼워넣는 것은 금지 — appendRow가 항상 이 순서대로 값을 채운다):
+ *    제출시각 / 언어 / 이름·닉네임 / 이메일 / 연락처 / 팔로워1000확인 / 참여플랫폼 / TikTok링크 / Instagram링크 / 업로드예정일 / 약관동의 /
+ *    친구1 SNS링크 / 친구1 이메일 / 친구2 SNS링크 / 친구2 이메일 / 친구3 SNS링크 / 친구3 이메일 /
+ *    친구4 SNS링크 / 친구4 이메일 / 친구5 SNS링크 / 친구5 이메일
  *    (친구는 최대 5명까지 각각 별도 칸에 들어간다. 폼에서도 5명까지만 추가 가능하도록 제한돼 있다)
  * 2. 상단 메뉴 확장 프로그램 > Apps Script 클릭
  * 3. 기본으로 있는 코드를 지우고 이 파일 내용을 전부 붙여넣기
