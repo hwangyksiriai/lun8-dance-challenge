@@ -14,9 +14,15 @@
  * 8. 발급된 "웹 앱 URL"(...../exec 로 끝남)을 ko.html, ja.html의 GOOGLE_SCRIPT_URL 에 넣으면 저장이 시작된다.
  */
 
+var HEADERS = ['timestamp','lang','name','email','contact','follower1000','platform','tiktok','instagram','postdate','friends','agree'];
+
 function doPost(e) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
   var p = e.parameter;
+
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(HEADERS);
+  }
 
   sheet.appendRow([
     new Date(),
