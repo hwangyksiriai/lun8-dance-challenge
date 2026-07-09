@@ -530,6 +530,7 @@ function validateStep(i){
   }
   if(i===2){
     if(!form.postdate.value){ errorBox.textContent = '업로드 예정일을 선택해주세요.'; errorBox.style.display='block'; return false; }
+    if(form.postdate.value < form.postdate.min || form.postdate.value > form.postdate.max){ errorBox.textContent = '업로드 예정일은 7/23 - 8/4 사이로 선택해주세요.'; errorBox.style.display='block'; return false; }
   }
   errorBox.style.display = 'none';
   return true;

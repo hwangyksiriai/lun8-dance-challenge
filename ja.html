@@ -530,6 +530,7 @@ function validateStep(i){
   }
   if(i===2){
     if(!form.postdate.value){ errorBox.textContent = '投稿予定日を選択してください。'; errorBox.style.display='block'; return false; }
+    if(form.postdate.value < form.postdate.min || form.postdate.value > form.postdate.max){ errorBox.textContent = '投稿予定日は7/23 - 8/4の間でお選びください。'; errorBox.style.display='block'; return false; }
   }
   errorBox.style.display = 'none';
   return true;
