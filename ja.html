@@ -149,12 +149,6 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
 .platform-card b{font-size:14.5px}
 .platform-card small{display:block;margin-top:2px;font-size:12.5px;color:var(--gray-3)}
 
-/* ---------- FOLLOWER RADIO ---------- */
-.radio-row{display:flex;gap:10px;flex-wrap:wrap}
-.radio-opt{flex:1;min-width:120px;text-align:center;border:1.5px solid rgba(255,61,120,.3);border-radius:10px;padding:12px 8px;cursor:pointer;font-weight:700;font-size:13px;color:var(--ink);background:#fff}
-.radio-opt.selected{border-color:var(--accent);background:var(--accent);color:#fff}
-.radio-opt input{display:none}
-
 /* ---------- FRIEND REFERRAL ---------- */
 .share-box{background:var(--sub-bg);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
 .share-link-row{margin-top:10px;display:flex;gap:8px}
@@ -334,11 +328,11 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
 
         <div class="warn">
           <b>フォロワー条件の確認 (必須)</b>
-          <p>フォロワー1,000人以上ですか?</p>
-          <div class="radio-row" style="margin-top:10px">
-            <label class="radio-opt"><input type="radio" name="follower1000" value="Y">はい、1,000人以上です</label>
-            <label class="radio-opt"><input type="radio" name="follower1000" value="N">いいえ</label>
-          </div>
+          <p>フォロワー1,000人以上のみ参加可能です。ご確認いただけましたか?</p>
+          <label class="checkfield" style="margin-top:10px">
+            <input type="checkbox" id="followerAgree" name="follower1000" value="Y">
+            <span><b style="color:var(--accent)">（必須）</b> はい、確認しました。</span>
+          </label>
         </div>
 
         <div class="step-nav">
@@ -490,16 +484,6 @@ function updatePlatformFields(){
   document.getElementById('mirrorWarn').style.display = (val==='both') ? 'block' : 'none';
 }
 
-// ---- フォロワー条件ラジオ ----
-document.querySelectorAll('.radio-opt').forEach(function(opt){
-  opt.addEventListener('click', function(){
-    const name = opt.querySelector('input').name;
-    document.querySelectorAll('input[name="'+name+'"]').forEach(function(i){ i.closest('.radio-opt').classList.remove('selected'); });
-    opt.classList.add('selected');
-    opt.querySelector('input').checked = true;
-  });
-});
-
 // ---- 友達追加 ----
 document.getElementById('addFriendBtn').addEventListener('click', function(){
   const wrap = document.getElementById('friendList');
@@ -534,7 +518,7 @@ function validateStep(i){
       errorBox.textContent = 'お名前、メールアドレス、連絡先をすべてご入力ください。'; errorBox.style.display='block'; return false;
     }
     if(!form.querySelector('input[name="follower1000"]:checked')){
-      errorBox.textContent = 'フォロワー条件を選択してください。'; errorBox.style.display='block'; return false;
+      errorBox.textContent = 'フォロワー条件をご確認のうえチェックしてください。'; errorBox.style.display='block'; return false;
     }
   }
   if(i===1){
