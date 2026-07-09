@@ -124,6 +124,7 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
 .checkfield span{min-width:0}
 .checkfield input{margin-top:2px;accent-color:var(--accent)}
 .form-error{display:none;margin-top:2px;font-size:12.5px;color:var(--accent);font-weight:600}
+.invalid{border-color:var(--accent) !important;box-shadow:0 0 0 3px rgba(255,61,120,.18) !important}
 .submit-btn{margin-top:2px;width:100%;padding:14px;font-size:15px;font-weight:700;color:#fff;background:var(--accent);border:none;border-radius:12px;cursor:pointer;font-family:inherit}
 .submit-btn:hover{background:#E0245E}
 .success-box{display:none;margin-top:20px;background:#FDF1F5;border:1px solid rgba(255,61,120,.25);border-radius:14px;padding:28px 20px;text-align:center;animation:popIn .3s ease}
@@ -328,7 +329,7 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
       <div class="step-dot"></div>
     </div>
 
-    <form id="applyForm" class="apply-fields" style="margin-top:20px">
+    <form id="applyForm" class="apply-fields" style="margin-top:20px" novalidate>
 
       <div class="form-error" id="formError"></div>
 
@@ -534,7 +535,7 @@ addFriendBtn.addEventListener('click', function(){
     '<div class="field-label">친구 SNS 링크 (TikTok 또는 Instagram)</div>' +
     '<input type="text" name="friendLink" placeholder="https://www.tiktok.com/friend_id">' +
     '<div class="field-label">친구 이메일</div>' +
-    '<input type="email" name="friendEmail" placeholder="friend@email.com">';
+    '<input type="text" name="friendEmail" placeholder="friend@email.com 또는 SNS 아이디">';
   div.querySelector('.friend-remove').addEventListener('click', function(){ div.remove(); updateAddFriendBtnState(); });
   friendListEl.appendChild(div);
   updateAddFriendBtnState();
@@ -554,25 +555,41 @@ function showStep(i){
   errorBox.style.display = 'none';
 }
 
+function isValidEmail(v){
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+}
+
+function focusInvalid(target, message){
+  errorBox.textContent = message;
+  errorBox.style.display = 'block';
+  if(target){
+    target.scrollIntoView({behavior:'smooth', block:'center'});
+    target.classList.add('invalid');
+    setTimeout(function(){ target.classList.remove('invalid'); }, 2000);
+    if(typeof target.focus === 'function'){ target.focus({preventScroll:true}); }
+  }
+}
+
 function validateStep(i){
   if(i===0){
-    if(!form.name.value.trim() || !form.email.value.trim() || !form.contact.value.trim()){
-      errorBox.textContent = '이름, 이메일, 연락처를 모두 입력해주세요.'; errorBox.style.display='block'; return false;
-    }
+    if(!form.name.value.trim()){ focusInvalid(form.name, '이름 또는 활동명(닉네임)을 입력해주세요.'); return false; }
+    if(!form.email.value.trim()){ focusInvalid(form.email, '이메일 주소를 입력해주세요.'); return false; }
+    if(!isValidEmail(form.email.value.trim())){ focusInvalid(form.email, '이메일 주소 형식이 올바르지 않아요. (예: example@email.com)'); return false; }
+    if(!form.contact.value.trim()){ focusInvalid(form.contact, '연락처(전화번호 또는 라인 ID)를 입력해주세요.'); return false; }
     if(!form.querySelector('input[name="follower1000"]:checked')){
-      errorBox.textContent = '팔로워 조건을 확인 후 체크해주세요.'; errorBox.style.display='block'; return false;
+      focusInvalid(document.getElementById('followerAgree'), '팔로워 조건을 확인 후 체크해주세요.'); return false;
     }
   }
   if(i===1){
     const platform = form.querySelector('input[name="platform"]:checked');
-    if(!platform){ errorBox.textContent = '참여 플랫폼을 선택해주세요.'; errorBox.style.display='block'; return false; }
+    if(!platform){ focusInvalid(document.querySelector('.platform-options'), '참여 플랫폼을 선택해주세요.'); return false; }
     const val = platform.value;
-    if((val==='tiktok'||val==='both') && !form.tiktok.value.trim()){ errorBox.textContent = 'TikTok 계정 링크를 입력해주세요.'; errorBox.style.display='block'; return false; }
-    if((val==='instagram'||val==='both') && !form.instagram.value.trim()){ errorBox.textContent = 'Instagram 계정 링크를 입력해주세요.'; errorBox.style.display='block'; return false; }
+    if((val==='tiktok'||val==='both') && !form.tiktok.value.trim()){ focusInvalid(form.tiktok, 'TikTok 계정 링크를 입력해주세요.'); return false; }
+    if((val==='instagram'||val==='both') && !form.instagram.value.trim()){ focusInvalid(form.instagram, 'Instagram 계정 링크를 입력해주세요.'); return false; }
   }
   if(i===2){
-    if(!form.postdate.value){ errorBox.textContent = '업로드 예정일을 선택해주세요.'; errorBox.style.display='block'; return false; }
-    if(form.postdate.value < form.postdate.min || form.postdate.value > form.postdate.max){ errorBox.textContent = '업로드 예정일은 7/23 - 8/4 사이로 선택해주세요.'; errorBox.style.display='block'; return false; }
+    if(!form.postdate.value){ focusInvalid(form.postdate, '업로드 예정일을 선택해주세요.'); return false; }
+    if(form.postdate.value < form.postdate.min || form.postdate.value > form.postdate.max){ focusInvalid(form.postdate, '업로드 예정일은 7/23 - 8/4 사이로 선택해주세요.'); return false; }
   }
   errorBox.style.display = 'none';
   return true;
@@ -596,7 +613,7 @@ const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz4P9TQApF0Fu
 form.addEventListener('submit', function(e){
   e.preventDefault();
   if(!form.agree.checked){
-    errorBox.textContent = '유의사항 확인 및 동의가 필요해요.'; errorBox.style.display = 'block'; return;
+    focusInvalid(document.getElementById('agree'), '유의사항 확인 및 동의가 필요해요.'); return;
   }
   errorBox.style.display = 'none';
 
