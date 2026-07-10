@@ -170,7 +170,9 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
 .share-link-row{margin-top:10px;display:flex;gap:8px}
 .share-link-row input{flex:1;min-width:0;padding:10px 12px;font-size:12.5px;border-radius:8px;border:1px solid rgba(0,0,0,.1);background:#fff;color:var(--gray-1);font-family:inherit}
 .friend-row{position:relative;border:1px solid var(--line);border-radius:12px;padding:16px 18px 14px;display:flex;flex-direction:column;gap:8px}
-.friend-row input{width:100%;padding:12px 14px;font-size:14px;border:1px solid rgba(0,0,0,.1);border-radius:10px;font-family:inherit}
+.friend-row input[type=text],.friend-row input[type=email]{width:100%;padding:12px 14px;font-size:14px;border:1px solid rgba(0,0,0,.1);border-radius:10px;font-family:inherit}
+.friend-row input[type=email]:disabled{background:var(--sub-bg);color:var(--gray-3)}
+.friend-row .checkfield input{width:auto;flex:none}
 .friend-remove{position:absolute;top:10px;right:10px;border:none;background:none;color:var(--gray-3);font-size:15px;cursor:pointer;line-height:1}
 .add-friend-btn{border:1.5px dashed var(--accent);color:var(--accent);background:none;border-radius:10px;padding:12px;font-weight:700;cursor:pointer;font-family:inherit;font-size:13.5px}
 
