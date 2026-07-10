@@ -542,11 +542,53 @@ addFriendBtn.addEventListener('click', function(){
     '<div class="field-label">友達のSNSリンク (TikTokまたはInstagram)</div>' +
     '<input type="text" name="friendLink" placeholder="https://www.tiktok.com/friend_id">' +
     '<div class="field-label">友達のメールアドレス</div>' +
-    '<input type="text" name="friendEmail" placeholder="friend@email.com または 不明">';
+    '<input type="email" name="friendEmail" placeholder="friend@email.com">' +
+    '<div class="form-error friend-email-error"></div>' +
+    '<label class="checkfield" style="margin-top:2px"><input type="checkbox" class="friend-unknown"><span>メールアドレスがわかりません</span></label>';
   div.querySelector('.friend-remove').addEventListener('click', function(){ div.remove(); updateAddFriendBtnState(); });
+
+  const emailInput = div.querySelector('input[name="friendEmail"]');
+  const emailError = div.querySelector('.friend-email-error');
+  const unknownCheckbox = div.querySelector('.friend-unknown');
+  unknownCheckbox.addEventListener('change', function(){
+    emailInput.disabled = unknownCheckbox.checked;
+    if(unknownCheckbox.checked){ emailInput.value = ''; emailInput.classList.remove('invalid'); emailError.style.display = 'none'; }
+  });
+  emailInput.addEventListener('input', function(){
+    emailInput.classList.remove('invalid');
+    emailError.style.display = 'none';
+  });
+
   friendListEl.appendChild(div);
   updateAddFriendBtnState();
 });
+
+function validateFriendRows(){
+  const rows = Array.from(friendListEl.querySelectorAll('.friend-row'));
+  for(const row of rows){
+    const linkInput = row.querySelector('input[name="friendLink"]');
+    const emailInput = row.querySelector('input[name="friendEmail"]');
+    const unknownCheckbox = row.querySelector('.friend-unknown');
+    const emailError = row.querySelector('.friend-email-error');
+    emailError.style.display = 'none';
+    emailInput.classList.remove('invalid');
+    if(!linkInput.value.trim()) continue;
+    if(unknownCheckbox.checked) continue;
+    const emailVal = emailInput.value.trim();
+    let message = '';
+    if(!emailVal){ message = '友達のメールアドレスを入力するか、下の「メールアドレスがわかりません」にチェックを入れてください。'; }
+    else if(!isValidEmail(emailVal)){ message = 'メールアドレスの形式が正しくありません。(例: example@email.com)'; }
+    if(message){
+      emailError.textContent = message;
+      emailError.style.display = 'block';
+      emailInput.classList.add('invalid');
+      emailInput.scrollIntoView({behavior:'smooth', block:'center'});
+      emailInput.focus({preventScroll:true});
+      return false;
+    }
+  }
+  return true;
+}
 
 // ---- ステップナビゲーション ----
 const steps = Array.from(document.querySelectorAll('.form-step'));
@@ -600,6 +642,9 @@ function validateStep(i){
     if(!form.postdate.value){ focusInvalid(form.postdate, '投稿予定日を選択してください。'); return false; }
     if(form.postdate.value < form.postdate.min || form.postdate.value > form.postdate.max){ focusInvalid(form.postdate, '投稿予定日は7/23 - 8/4の間でお選びください。'); return false; }
   }
+  if(i===3){
+    if(!validateFriendRows()) return false;
+  }
   errorBox.style.display = 'none';
   return true;
 }
@@ -645,13 +690,18 @@ const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz4P9TQApF0Fu
 
 form.addEventListener('submit', function(e){
   e.preventDefault();
+  if(!validateFriendRows()) return;
   if(!form.agree.checked){
     focusInvalid(document.getElementById('agree'), '注意事項のご確認・同意が必要です。'); return;
   }
   errorBox.style.display = 'none';
 
-  const friendLinks = Array.from(form.querySelectorAll('input[name="friendLink"]')).map(function(i){ return i.value.trim(); });
-  const friendEmails = Array.from(form.querySelectorAll('input[name="friendEmail"]')).map(function(i){ return i.value.trim(); });
+  const friendRows = Array.from(friendListEl.querySelectorAll('.friend-row'));
+  const friendLinks = friendRows.map(function(row){ return row.querySelector('input[name="friendLink"]').value.trim(); });
+  const friendEmails = friendRows.map(function(row){
+    const unknown = row.querySelector('.friend-unknown').checked;
+    return unknown ? '不明' : row.querySelector('input[name="friendEmail"]').value.trim();
+  });
 
   const platform = form.querySelector('input[name="platform"]:checked');
   const follower1000 = form.querySelector('input[name="follower1000"]:checked');
