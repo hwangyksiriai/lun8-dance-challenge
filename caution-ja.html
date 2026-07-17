@@ -73,6 +73,19 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
 .footer{padding:24px 24px 30px;text-align:center}
 .back-link{display:inline-block;margin-bottom:14px;font-size:13px;font-weight:700;color:var(--accent);text-decoration:none}
 .footer-brand{font-size:11.5px;letter-spacing:.08em;color:var(--gray-5)}
+
+/* ---------- MOBILE ---------- */
+@media(max-width:380px){
+  .hero{padding:32px 18px 24px}
+  .section{padding:22px 14px 10px}
+  .hero h1{font-size:22px}
+  .hero-desc{font-size:12.5px}
+  .compare-row{gap:6px}
+  .col-label{font-size:10px}
+  .example-label{font-size:12px}
+  .example-num{width:20px;height:20px;font-size:10px}
+  .orig-link{font-size:10px;padding:5px 3px}
+}
 </style>
 </head>
 <body>
@@ -109,7 +122,7 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
         <div class="compare-col">
           <div class="col-label">📷 Instagram</div>
           <div class="embed-box video-box">
-            <video src="./media/1.mp4" controls playsinline preload="metadata"></video>
+            <video src="./media/1.mp4" muted loop controls playsinline preload="metadata"></video>
           </div>
           <a class="orig-link" href="https://www.instagram.com/reels/DSc4W_YgSld/" target="_blank" rel="noopener">元のリンクを開く ↗</a>
         </div>
@@ -133,7 +146,7 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
         <div class="compare-col">
           <div class="col-label">📷 Instagram</div>
           <div class="embed-box video-box">
-            <video src="./media/2.mp4" controls playsinline preload="metadata"></video>
+            <video src="./media/2.mp4" muted loop controls playsinline preload="metadata"></video>
           </div>
           <a class="orig-link" href="https://www.instagram.com/reels/DSbP968j5NG/" target="_blank" rel="noopener">元のリンクを開く ↗</a>
         </div>
@@ -157,7 +170,7 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
         <div class="compare-col">
           <div class="col-label">📷 Instagram</div>
           <div class="embed-box video-box">
-            <video src="./media/3.mp4" controls playsinline preload="metadata"></video>
+            <video src="./media/3.mp4" muted loop controls playsinline preload="metadata"></video>
           </div>
           <a class="orig-link" href="https://www.instagram.com/reels/DSXMj9RkoBT/" target="_blank" rel="noopener">元のリンクを開く ↗</a>
         </div>
@@ -190,7 +203,7 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
         <div class="compare-col">
           <div class="col-label">📷 Instagram</div>
           <div class="embed-box video-box">
-            <video src="./media/4.mp4" controls playsinline preload="metadata"></video>
+            <video src="./media/4.mp4" muted loop controls playsinline preload="metadata"></video>
           </div>
           <a class="orig-link" href="https://www.instagram.com/reels/DSKfS_AgVuR/" target="_blank" rel="noopener">元のリンクを開く ↗</a>
         </div>
@@ -214,7 +227,7 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
         <div class="compare-col">
           <div class="col-label">📷 Instagram</div>
           <div class="embed-box video-box">
-            <video src="./media/5.mp4" controls playsinline preload="metadata"></video>
+            <video src="./media/5.mp4" muted loop controls playsinline preload="metadata"></video>
           </div>
           <a class="orig-link" href="https://www.instagram.com/reels/DSMK2LOk0P6/" target="_blank" rel="noopener">元のリンクを開く ↗</a>
         </div>
@@ -238,7 +251,7 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
         <div class="compare-col">
           <div class="col-label">📷 Instagram</div>
           <div class="embed-box video-box">
-            <video src="./media/6.mp4" controls playsinline preload="metadata"></video>
+            <video src="./media/6.mp4" muted loop controls playsinline preload="metadata"></video>
           </div>
           <a class="orig-link" href="https://www.instagram.com/reels/DSPiGHTk9gU/" target="_blank" rel="noopener">元のリンクを開く ↗</a>
         </div>
@@ -324,6 +337,25 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
   setTimeout(function(){ clearInterval(poll); }, 20000);
   window.addEventListener('resize', fitAll);
   window.addEventListener('load', function(){ setTimeout(fitAll, 800); });
+
+  // インスタグラム代替動画: ボタン不要で即座に自動再生（画面外に出たら一時停止しモバイルのデータを節約）
+  var videos = document.querySelectorAll('.video-box video');
+  function tryPlay(v){
+    v.muted = true;
+    var p = v.play();
+    if(p && p.catch) p.catch(function(){ setTimeout(function(){ v.play().catch(function(){}); }, 300); });
+  }
+  videos.forEach(tryPlay);
+  window.addEventListener('load', function(){ videos.forEach(tryPlay); });
+  if('IntersectionObserver' in window){
+    var vio = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ tryPlay(entry.target); }
+        else { entry.target.pause(); }
+      });
+    }, {threshold:0.25});
+    videos.forEach(function(v){ vio.observe(v); });
+  }
 })();
 </script>
 </body>
