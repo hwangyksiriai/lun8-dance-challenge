@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ミラーリング注意事項 · LUN8「SNEAKERS」Dance Challenge</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+:root{
+  --page-bg:#F2EFE9;
+  --card-bg:#FFFFFF;
+  --sub-bg:#FAF9F7;
+  --ink:#17151F;
+  --accent:#FF3D78;
+  --accent-tint:#FFF0F6;
+  --ok:#15A467;
+  --ok-tint:#EAFAF2;
+  --gray-1:#726F7C;
+  --gray-2:#8B889A;
+  --gray-3:#9A96A3;
+  --gray-4:#A09DB0;
+  --gray-5:#C3C0CC;
+  --line:rgba(0,0,0,.06);
+  --font:"Pretendard","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,-apple-system,BlinkMacSystemFont,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-height:1.75;-webkit-tap-highlight-color:transparent;word-break:keep-all;overflow-wrap:break-word}
+
+.page{min-height:100vh;display:flex;justify-content:center;padding:32px 16px}
+.card{width:100%;max-width:640px;background:var(--card-bg);border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(20,15,10,.08)}
+.divider{margin:8px 20px 0;border-top:1px solid rgba(0,0,0,.07)}
+
+/* ---------- HERO ---------- */
+.hero{background:linear-gradient(160deg,#fff0f6 0%,#fff9f0 55%,#fff 100%);padding:40px 24px 30px;text-align:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,61,120,.35);border-radius:999px;padding:7px 18px;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--accent)}
+.hero h1{margin-top:20px;font-size:clamp(24px,7vw,28px);font-weight:800;color:var(--ink);line-height:1.3;letter-spacing:-.01em;text-wrap:balance}
+.hero-desc{margin-top:16px;font-size:13.5px;line-height:1.75;color:var(--gray-1);max-width:460px;margin-left:auto;margin-right:auto;text-align:left}
+
+/* ---------- SECTION ---------- */
+.section{padding:28px 20px 12px}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:.12em}
+.eyebrow.ok{color:var(--ok)}
+.eyebrow.bad{color:var(--accent)}
+.section h2{margin-top:8px;font-size:19px;font-weight:800;color:var(--ink)}
+.section-note{margin-top:6px;font-size:12.5px;color:var(--gray-3)}
+
+/* ---------- EXAMPLE BLOCK ---------- */
+.example{margin-top:22px}
+.example:first-of-type{margin-top:18px}
+.example-head{display:flex;align-items:center;gap:8px}
+.example-num{flex:none;width:22px;height:22px;border-radius:50%;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.example-num.ok{background:var(--ok)}
+.example-num.bad{background:var(--accent)}
+.example-label{font-size:13px;font-weight:700;color:var(--ink)}
+
+.compare-row{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.compare-col{min-width:0}
+.col-label{font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--gray-3);text-align:center;margin-bottom:6px}
+.embed-box{position:relative;width:100%;min-height:280px;overflow:hidden;border-radius:12px;background:var(--sub-bg);border:1px solid var(--line)}
+.scale-wrap{display:inline-block;transform-origin:top left}
+.embed-box iframe{border:0;display:block}
+.embed-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11.5px;color:var(--gray-4);text-align:center;padding:0 8px}
+.embed-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:inherit;padding:12px;text-align:center}
+.embed-fallback .fb-icon{width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px}
+.embed-fallback .fb-text{font-size:11.5px;font-weight:700;color:var(--ink);line-height:1.5}
+.orig-link{display:block;margin-top:8px;text-align:center;font-size:11px;color:var(--gray-4);text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:6px 4px;transition:border-color .12s,color .12s}
+.orig-link:hover{border-color:var(--accent);color:var(--accent)}
+
+.footer{padding:24px 24px 30px;text-align:center}
+.back-link{display:inline-block;margin-bottom:14px;font-size:13px;font-weight:700;color:var(--accent);text-decoration:none}
+.footer-brand{font-size:11.5px;letter-spacing:.08em;color:var(--gray-5)}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="card">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">LUN8 · SNEAKERS · K-POP DANCE CHALLENGE</div>
+    <h1>ミラーリング注意事項</h1>
+    <p class="hero-desc">TikTokとInstagramの2つのプラットフォームにミラーリングして投稿される際、背景または構図が完全に異なっている必要がある点について、改めてご案内いたします。<br><br>以下にミラーリングとして認定される例と、認定されない例をご紹介しますので、ぜひご参考ください。</p>
+  </div>
+
+  <!-- 認定例 -->
+  <div class="section">
+    <div class="eyebrow ok">✅ OK</div>
+    <h2>ミラーリング認定例</h2>
+    <p class="section-note">背景・構図がそれぞれ異なって撮影されたケースです。</p>
+
+    <div class="example">
+      <div class="example-head"><div class="example-num ok">1</div><div class="example-label">認定例 1</div></div>
+      <div class="compare-row">
+        <div class="compare-col">
+          <div class="col-label">🎵 TikTok</div>
+          <div class="embed-box">
+            <div class="scale-wrap">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@rhythmyolo/video/7585450544035056904" data-video-id="7585450544035056904" style="max-width: 325px;min-width: 325px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@rhythmyolo?refer=embed">@rhythmyolo</a></section>
+              </blockquote>
+            </div>
+          </div>
+          <a class="orig-link" href="https://www.tiktok.com/@rhythmyolo/video/7585450544035056904" target="_blank" rel="noopener">元のリンクを開く ↗</a>
+        </div>
+        <div class="compare-col">
+          <div class="col-label">📷 Instagram</div>
+          <div class="embed-box">
+            <div class="scale-wrap">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reels/DSc4W_YgSld/" data-instgrm-version="14" style="width:326px;min-width:326px;"></blockquote>
+            </div>
+          </div>
+          <a class="orig-link" href="https://www.instagram.com/reels/DSc4W_YgSld/" target="_blank" rel="noopener">元のリンクを開く ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="example-head"><div class="example-num ok">2</div><div class="example-label">認定例 2</div></div>
+      <div class="compare-row">
+        <div class="compare-col">
+          <div class="col-label">🎵 TikTok</div>
+          <div class="embed-box">
+            <div class="scale-wrap">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ryunosuke.000523/video/7585368004892855559" data-video-id="7585368004892855559" style="max-width: 325px;min-width: 325px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@ryunosuke.000523?refer=embed">@ryunosuke.000523</a></section>
+              </blockquote>
+            </div>
+          </div>
+          <a class="orig-link" href="https://www.tiktok.com/@ryunosuke.000523/video/7585368004892855559" target="_blank" rel="noopener">元のリンクを開く ↗</a>
+        </div>
+        <div class="compare-col">
+          <div class="col-label">📷 Instagram</div>
+          <div class="embed-box">
+            <div class="scale-wrap">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reels/DSbP968j5NG/" data-instgrm-version="14" style="width:326px;min-width:326px;"></blockquote>
+            </div>
+          </div>
+          <a class="orig-link" href="https://www.instagram.com/reels/DSbP968j5NG/" target="_blank" rel="noopener">元のリンクを開く ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="example-head"><div class="example-num ok">3</div><div class="example-label">認定例 3</div></div>
+      <div class="compare-row">
+        <div class="compare-col">
+          <div class="col-label">🎵 TikTok</div>
+          <div class="embed-box">
+            <div class="scale-wrap">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ssayah03/video/7584784383089954055" data-video-id="7584784383089954055" style="max-width: 325px;min-width: 325px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@ssayah03?refer=embed">@ssayah03</a></section>
+              </blockquote>
+            </div>
+          </div>
+          <a class="orig-link" href="https://www.tiktok.com/@ssayah03/video/7584784383089954055" target="_blank" rel="noopener">元のリンクを開く ↗</a>
+        </div>
+        <div class="compare-col">
+          <div class="col-label">📷 Instagram</div>
+          <div class="embed-box">
+            <div class="scale-wrap">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reels/DSXMj9RkoBT/" data-instgrm-version="14" style="width:326px;min-width:326px;"></blockquote>
+            </div>
+          </div>
+          <a class="orig-link" href="https://www.instagram.com/reels/DSXMj9RkoBT/" target="_blank" rel="noopener">元のリンクを開く ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 非認定例 -->
+  <div class="section" style="padding-bottom:8px">
+    <div class="eyebrow bad">❌ NG</div>
+    <h2>ミラーリング非認定例</h2>
+    <p class="section-note">背景・構図が同一、またはほぼ類似しているケースです。</p>
+
+    <div class="example">
+      <div class="example-head"><div class="example-num bad">1</div><div class="example-label">非認定例 1</div></div>
+      <div class="compare-row">
+        <div class="compare-col">
+          <div class="col-label">🎵 TikTok</div>
+          <div class="embed-box">
+            <div class="scale-wrap">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@yki0308/video/7582954812061289749" data-video-id="7582954812061289749" style="max-width: 325px;min-width: 325px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@yki0308?refer=embed">@yki0308</a></section>
+              </blockquote>
+            </div>
+          </div>
+          <a class="orig-link" href="https://www.tiktok.com/@yki0308/video/7582954812061289749" target="_blank" rel="noopener">元のリンクを開く ↗</a>
+        </div>
+        <div class="compare-col">
+          <div class="col-label">📷 Instagram</div>
+          <div class="embed-box">
+            <div class="scale-wrap">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reels/DSKfS_AgVuR/" data-instgrm-version="14" style="width:326px;min-width:326px;"></blockquote>
+            </div>
+          </div>
+          <a class="orig-link" href="https://www.instagram.com/reels/DSKfS_AgVuR/" target="_blank" rel="noopener">元のリンクを開く ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="example-head"><div class="example-num bad">2</div><div class="example-label">非認定例 2</div></div>
+      <div class="compare-row">
+        <div class="compare-col">
+          <div class="col-label">🎵 TikTok</div>
+          <div class="embed-box">
+            <div class="scale-wrap">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@micchory__/video/7582896895983586568" data-video-id="7582896895983586568" style="max-width: 325px;min-width: 325px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@micchory__?refer=embed">@micchory__</a></section>
+              </blockquote>
+            </div>
+          </div>
+          <a class="orig-link" href="https://www.tiktok.com/@micchory__/video/7582896895983586568" target="_blank" rel="noopener">元のリンクを開く ↗</a>
+        </div>
+        <div class="compare-col">
+          <div class="col-label">📷 Instagram</div>
+          <div class="embed-box">
+            <div class="scale-wrap">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reels/DSMK2LOk0P6/" data-instgrm-version="14" style="width:326px;min-width:326px;"></blockquote>
+            </div>
+          </div>
+          <a class="orig-link" href="https://www.instagram.com/reels/DSMK2LOk0P6/" target="_blank" rel="noopener">元のリンクを開く ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="example-head"><div class="example-num bad">3</div><div class="example-label">非認定例 3</div></div>
+      <div class="compare-row">
+        <div class="compare-col">
+          <div class="col-label">🎵 TikTok</div>
+          <div class="embed-box">
+            <div class="scale-wrap">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@kazumi___/video/7583683667055234322" data-video-id="7583683667055234322" style="max-width: 325px;min-width: 325px;">
+                <section><a target="_blank" href="https://www.tiktok.com/@kazumi___?refer=embed">@kazumi___</a></section>
+              </blockquote>
+            </div>
+          </div>
+          <a class="orig-link" href="https://www.tiktok.com/@kazumi___/video/7583683667055234322" target="_blank" rel="noopener">元のリンクを開く ↗</a>
+        </div>
+        <div class="compare-col">
+          <div class="col-label">📷 Instagram</div>
+          <div class="embed-box">
+            <div class="scale-wrap">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reels/DSPiGHTk9gU/" data-instgrm-version="14" style="width:326px;min-width:326px;"></blockquote>
+            </div>
+          </div>
+          <a class="orig-link" href="https://www.instagram.com/reels/DSPiGHTk9gU/" target="_blank" rel="noopener">元のリンクを開く ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a class="back-link" href="./index.html">← ハブに戻る</a>
+    <div class="footer-brand">SIRIAI · INFLUENCER MARKETING AGENCY</div>
+  </div>
+
+</div>
+</div>
+
+<script async src="https://www.tiktok.com/embed.js"></script>
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+(function(){
+  var observed = new WeakSet();
+  var timedOut = new WeakSet();
+
+  document.querySelectorAll('.embed-box').forEach(function(box){
+    var loading = document.createElement('div');
+    loading.className = 'embed-loading';
+    loading.textContent = '読み込み中…';
+    box.appendChild(loading);
+  });
+
+  function fallback(col){
+    var box = col.querySelector('.embed-box');
+    var origLink = col.querySelector('.orig-link');
+    var label = col.querySelector('.col-label');
+    if(!box || !origLink) return;
+    var url = origLink.getAttribute('href');
+    var text = (label ? label.textContent.trim() : '元のページ') + 'で<br>新しいタブで見る';
+    box.innerHTML = '<a class="embed-fallback" href="' + url + '" target="_blank" rel="noopener">' +
+      '<span class="fb-icon">▶</span><span class="fb-text">' + text + '</span></a>';
+    box.style.height = '';
+  }
+
+  function fit(col){
+    if(timedOut.has(col)) return;
+    var wrap = col.querySelector('.scale-wrap');
+    var iframe = wrap && wrap.querySelector('iframe');
+    if(!iframe) return;
+    var w = iframe.offsetWidth, h = iframe.offsetHeight;
+    if(!w || h < 50) return;
+    var box = col.querySelector('.embed-box');
+    var targetW = box.clientWidth;
+    if(!targetW) return;
+    var scale = targetW / w;
+    wrap.style.transform = 'scale(' + scale + ')';
+    box.style.height = Math.round(h * scale) + 'px';
+    var loading = box.querySelector('.embed-loading');
+    if(loading) loading.style.display = 'none';
+  }
+
+  function fitAll(){
+    document.querySelectorAll('.compare-col').forEach(fit);
+  }
+
+  function watch(){
+    document.querySelectorAll('.compare-col').forEach(function(col){
+      var wrap = col.querySelector('.scale-wrap');
+      var iframe = wrap && wrap.querySelector('iframe');
+      if(iframe && !observed.has(iframe)){
+        observed.add(iframe);
+        if(window.ResizeObserver){
+          new ResizeObserver(function(){ fit(col); }).observe(iframe);
+        }
+        fit(col);
+        setTimeout(function(){
+          if(iframe.offsetHeight < 50){
+            timedOut.add(col);
+            fallback(col);
+          }
+        }, 8000);
+      }
+    });
+  }
+
+  var poll = setInterval(watch, 400);
+  setTimeout(function(){ clearInterval(poll); }, 20000);
+  window.addEventListener('resize', fitAll);
+  window.addEventListener('load', function(){ setTimeout(fitAll, 800); });
+})();
+</script>
+</body>
+</html>
